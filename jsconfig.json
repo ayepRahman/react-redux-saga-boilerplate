@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs", // let relative path of "/module/index.js" = "/module"
+    "module": "commonjs",
     "baseUrl": "src/"
   },
   "exclude": ["node_modules", "build", "config", "public", "scripts"]
