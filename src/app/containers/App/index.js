@@ -1,10 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
+
+import Home from 'app/containers/Home';
+import NotFoundPage from 'app/containers/NotFoundPage';
 
 const App = props => {
   return (
     <div>
-      <h1>App</h1>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="" component={NotFoundPage} />
+      </Switch>
     </div>
   );
 };
