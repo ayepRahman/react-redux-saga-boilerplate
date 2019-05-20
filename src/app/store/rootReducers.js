@@ -6,19 +6,20 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
 import history from 'utils/history';
-import appReducer from 'containers/App/reducer';
+// import appReducer from 'containers/App/reducer';
 // import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
  */
-export default function createReducer(injectedReducers = {}) {
+
+export const createReducer = (injectedReducers = {}) => {
   const rootReducer = combineReducers({
-    app: appReducer,
+    app: {},
     // language: languageProviderReducer,
     router: connectRouter(history),
     ...injectedReducers,
   });
 
   return rootReducer;
-}
+};
