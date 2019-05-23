@@ -16,6 +16,10 @@ You can absolute import `import { Button } from 'components/button'`
 
 Build with `react-loadable` a higher-order component (a function that creates a component) which lets you dynamically load any module before rendering it into your app.
 
+### Out of the box React Ui/Css framework (React-bootstrap)
+
+By default we're using [react-boostrap](https://react-bootstrap.github.io) for our react ui framework.
+
 ### Styling (SASS, styled-components)
 
 This project bootstrap using Create React App. Check the styling guide below.
