@@ -9,8 +9,8 @@ import styled, { keyframes } from 'styled-components';
 import { useInjectReducer } from 'utils/injectReducer';
 import reducer from './reducer';
 // import { useInjectSaga } from 'utils/injectSaga';
-
-// #20222A
+import ReactLogo from 'resources/images/react-logo.png';
+import ReduxLogo from 'resources/images/redux-logo.png';
 
 const rotate = keyframes`
   from {
@@ -23,15 +23,22 @@ const rotate = keyframes`
 `;
 
 // Here we create a component that will rotate everything we pass in over two seconds
+
+const RotateWrapper = styled.div`
+  position: relative;
+  width: 200px;
+`;
+
 const Rotate = styled.div`
-  display: inline-block;
-  animation: ${rotate} 2s linear infinite;
-  padding: 2rem 1rem;
-  font-size: 1.2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* display: inline-block; */
+  /* animation: ${rotate} 5s linear infinite; */
 `;
 
 const Home = props => {
-  const { number } = props;
   console.log(props);
   useInjectReducer({ key: 'Home', reducer });
 
@@ -41,8 +48,17 @@ const Home = props => {
         <Col className="pb-5" xs={12}>
           <h1>React Redux Saga Boilerplate</h1>
         </Col>
-        <Col center xs>
-          <Rotate>Rotating Imgae</Rotate>
+      </Row>
+      <Row className="text-center justify-content-center">
+        <Col xs={6}>
+          <RotateWrapper>
+            <Rotate>
+              <img src={ReactLogo} alt="react-logo" height="150" />
+            </Rotate>
+            <Rotate>
+              <img src={ReduxLogo} alt="react-logo" height="150" />
+            </Rotate>
+          </RotateWrapper>
         </Col>
       </Row>
     </Container>
