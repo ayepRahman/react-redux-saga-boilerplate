@@ -8,7 +8,7 @@
  */
 
 import produce from 'immer';
-import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR } from './constants';
+import { LOAD_MOVIES_SUCCESS, LOAD_MOVIES, LOAD_MOVIES_ERROR } from './constants';
 
 // The initial state of the App
 export const initialState = {
@@ -18,23 +18,23 @@ export const initialState = {
 };
 
 /* eslint-disable default-case, no-param-reassign */
-const homeReducer = (state = initialState, action) =>
+const moviesReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
-      case LOAD_REPOS:
+      case LOAD_MOVIES:
         draft.loading = true;
         draft.error = false;
         break;
 
-      case LOAD_REPOS_SUCCESS:
+      case LOAD_MOVIES_SUCCESS:
         draft.loading = false;
         break;
 
-      case LOAD_REPOS_ERROR:
+      case LOAD_MOVIES_ERROR:
         draft.error = action.error;
         draft.loading = false;
         break;
     }
   });
 
-export default homeReducer;
+export default moviesReducer;
