@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const NotFoundPage = props => {
   return (
-    <div>
+    <div className="text-white">
       <h1>Not Found</h1>
     </div>
   );

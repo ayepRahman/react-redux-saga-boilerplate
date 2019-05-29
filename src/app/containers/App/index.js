@@ -1,10 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import styled from 'styled-components';
-
-import Home from 'app/containers/Home/loadable';
+import HomePage from 'app/containers/HomePage/loadable';
 import NotFoundPage from 'app/containers/NotFoundPage/loadable';
+import MoviesPage from 'app/containers/MoviesPage/loadable';
+
+import routeTemplates from 'utils/routeTemplates';
+import styled from 'styled-components';
 
 const AppWrapper = styled.div`
   height: 100%;
@@ -14,7 +16,8 @@ const App = props => {
   return (
     <AppWrapper>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path={routeTemplates.root} component={HomePage} />
+        <Route exact path={routeTemplates.movies.root} component={MoviesPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
     </AppWrapper>

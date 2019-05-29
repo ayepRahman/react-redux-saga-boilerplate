@@ -22,20 +22,9 @@ const rotate = keyframes`
   }
 `;
 
-// Here we create a component that will rotate everything we pass in over two seconds
-
-const RotateWrapper = styled.div`
-  position: relative;
-  width: 200px;
-`;
-
 const Rotate = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  /* display: inline-block; */
-  /* animation: ${rotate} 5s linear infinite; */
+  display: inline-block;
+  animation: ${rotate} 5s linear infinite;
 `;
 
 const Home = props => {
@@ -49,16 +38,14 @@ const Home = props => {
           <h1>React Redux Saga Boilerplate</h1>
         </Col>
       </Row>
-      <Row className="text-center justify-content-center">
+      <Row className="text-center justify-content-center pt-5">
         <Col xs={6}>
-          <RotateWrapper>
-            <Rotate>
-              <img src={ReactLogo} alt="react-logo" height="150" />
-            </Rotate>
-            <Rotate>
-              <img src={ReduxLogo} alt="react-logo" height="150" />
-            </Rotate>
-          </RotateWrapper>
+          <Rotate>
+            <img src={ReactLogo} alt="react-logo" height="150" />
+          </Rotate>
+          <Rotate>
+            <img src={ReduxLogo} alt="react-logo" height="150" />
+          </Rotate>
         </Col>
       </Row>
     </Container>
