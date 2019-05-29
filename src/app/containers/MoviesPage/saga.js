@@ -2,9 +2,14 @@
  * Gets the repositories of the user from Github
  */
 
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { LOAD_MOVIES } from 'containers/Movies/constants';
-import { moviesLoaded, moviesLoadingError } from 'containers/Movies/actions';
+import {
+  call,
+  put,
+  //  select,
+  takeLatest,
+} from 'redux-saga/effects';
+import { LOAD_MOVIES } from 'app/containers/MoviesPage/constants';
+import { moviesLoaded, moviesLoadingError } from 'app/containers/MoviesPage/actions';
 
 import request from 'utils/request';
 
@@ -14,12 +19,13 @@ const API_KEY = process.env.REACT_APP_MOVIE_API_KEY || '6878e823788381b9f6763114
  * Github repos request/response handler
  */
 export function* getMovies() {
-  const requestURL = `https://api.github.com/users/repos?type=all&sort=updated`;
+  const requestURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
 
   try {
     // Call our request helper (see 'utils/request')
-    const movies = yield call(request, requestURL);
-    yield put(moviesLoaded(movies));
+    const response = yield call(request, requestURL);
+    console.log(response);
+    yield put(moviesLoaded(response));
   } catch (err) {
     yield put(moviesLoadingError(err));
   }

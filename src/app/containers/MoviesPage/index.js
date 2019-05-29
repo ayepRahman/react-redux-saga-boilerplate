@@ -15,12 +15,14 @@ const key = 'Movies';
 
 const MoviesPage = props => {
   const { getMovies } = props;
+  // @dev useInjectReducer before other react hooks function
+  // @dev useInjectSaga before other react hooks function
+  useInjectReducer({ key, reducer });
+  useInjectSaga({ key, saga });
   useEffect(() => {
     // call action to get movies
     getMovies();
   }, [getMovies]);
-  useInjectReducer({ key, reducer });
-  useInjectSaga({ key, saga });
 
   return (
     <Container className="text-white pt-5">

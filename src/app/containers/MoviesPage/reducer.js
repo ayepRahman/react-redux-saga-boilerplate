@@ -14,12 +14,13 @@ import { LOAD_MOVIES_SUCCESS, LOAD_MOVIES, LOAD_MOVIES_ERROR } from './constants
 export const initialState = {
   loading: false,
   error: false,
-  data: {},
+  data: [],
 };
 
 /* eslint-disable default-case, no-param-reassign */
-const moviesReducer = (state = initialState, action) =>
-  produce(state, draft => {
+const moviesReducer = (state = initialState, action) => {
+  console.log('action', action);
+  return produce(state, draft => {
     switch (action.type) {
       case LOAD_MOVIES:
         draft.loading = true;
@@ -28,6 +29,8 @@ const moviesReducer = (state = initialState, action) =>
 
       case LOAD_MOVIES_SUCCESS:
         draft.loading = false;
+        draft.data = action.data;
+
         break;
 
       case LOAD_MOVIES_ERROR:
@@ -36,5 +39,6 @@ const moviesReducer = (state = initialState, action) =>
         break;
     }
   });
+};
 
 export default moviesReducer;

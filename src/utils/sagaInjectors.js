@@ -81,6 +81,8 @@ export function ejectSagaFactory(store, isValid) {
 export default function getInjectors(store) {
   checkStore(store);
 
+  debugger;
+
   return {
     injectSaga: injectSagaFactory(store, true),
     ejectSaga: ejectSagaFactory(store, true),

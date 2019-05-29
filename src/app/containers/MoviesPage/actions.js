@@ -34,11 +34,10 @@ export function loadMovies() {
  * @param  {string} username The current username
  * @return {object}      An action object with a type of LOAD_MOVIES_SUCCESS passing the MOVIES
  */
-export function moviesLoaded(movies, username) {
+export function moviesLoaded(movies) {
   return {
     type: LOAD_MOVIES_SUCCESS,
     movies,
-    username,
   };
 }
 
