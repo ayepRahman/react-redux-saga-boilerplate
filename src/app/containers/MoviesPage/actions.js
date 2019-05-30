@@ -15,16 +15,16 @@
  *    }
  */
 
-import { LOAD_MOVIES, LOAD_MOVIES_SUCCESS, LOAD_MOVIES_ERROR } from './constants';
+import { GET_MOVIES_START, GET_MOVIES_SUCCESS, GET_MOVIES_ERROR } from './constants';
 
 /**
  * Load the MOVIESitories, this action starts the request saga
  *
- * @return {object} An action object with a type of LOAD_MOVIES
+ * @return {object} An action object with a type of GET_MOVIES
  */
-export function loadMovies() {
+export function getMoviesStart() {
   return {
-    type: LOAD_MOVIES,
+    type: GET_MOVIES_START,
   };
 }
 
@@ -32,11 +32,11 @@ export function loadMovies() {
  * Dispatched when the MOVIESitories are loaded by the request saga
  * @param  {array} MOVIES The MOVIESitory data
  * @param  {string} username The current username
- * @return {object}      An action object with a type of LOAD_MOVIES_SUCCESS passing the MOVIES
+ * @return {object}      An action object with a type of GET_MOVIES_SUCCESS passing the MOVIES
  */
-export function moviesLoaded(movies) {
+export function getMoviesSuccess(movies) {
   return {
-    type: LOAD_MOVIES_SUCCESS,
+    type: GET_MOVIES_SUCCESS,
     movies,
   };
 }
@@ -44,11 +44,11 @@ export function moviesLoaded(movies) {
 /**
  * Dispatched when loading the MOVIESitories fails
  * @param  {object} error The error
- * @return {object}       An action object with a type of LOAD_MOVIES_ERROR passing the error
+ * @return {object}       An action object with a type of GET_MOVIES_ERROR passing the error
  */
-export function moviesLoadingError(error) {
+export function getMoviesError(error) {
   return {
-    type: LOAD_MOVIES_ERROR,
+    type: GET_MOVIES_ERROR,
     error,
   };
 }

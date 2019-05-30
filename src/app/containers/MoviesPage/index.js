@@ -8,21 +8,21 @@ import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import reducer from './reducer';
 import saga from './saga';
-import { loadMovies } from './actions';
+import { getMoviesStart } from './actions';
 
 //TODO: need to add useInjectSaga to dispatch action to saga middlewares
-const key = 'Movies';
+const key = 'movies';
 
 const MoviesPage = props => {
-  const { getMovies } = props;
+  const { getMoviesStart } = props;
   // @dev useInjectReducer before other react hooks function
   // @dev useInjectSaga before other react hooks function
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
   useEffect(() => {
     // call action to get movies
-    getMovies();
-  }, [getMovies]);
+    getMoviesStart();
+  }, [getMoviesStart]);
 
   return (
     <Container className="text-white pt-5">
@@ -48,8 +48,8 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getMovies: () => {
-      dispatch(loadMovies());
+    getMoviesStart: () => {
+      dispatch(getMoviesStart());
     },
   };
 };

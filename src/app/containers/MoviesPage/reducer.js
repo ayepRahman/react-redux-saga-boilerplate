@@ -8,32 +8,33 @@
  */
 
 import produce from 'immer';
-import { LOAD_MOVIES_SUCCESS, LOAD_MOVIES, LOAD_MOVIES_ERROR } from './constants';
+import { GET_MOVIES_SUCCESS, GET_MOVIES_START, GET_MOVIES_ERROR } from './constants';
 
 // The initial state of the App
 export const initialState = {
   loading: false,
   error: false,
-  data: [],
+  data: {
+    movies: [],
+  },
 };
 
 /* eslint-disable default-case, no-param-reassign */
 const moviesReducer = (state = initialState, action) => {
-  console.log('action', action);
   return produce(state, draft => {
     switch (action.type) {
-      case LOAD_MOVIES:
+      case GET_MOVIES_START:
         draft.loading = true;
         draft.error = false;
         break;
 
-      case LOAD_MOVIES_SUCCESS:
+      case GET_MOVIES_SUCCESS:
         draft.loading = false;
-        draft.data = action.data;
+        draft.data.movies = action.movies;
 
         break;
 
-      case LOAD_MOVIES_ERROR:
+      case GET_MOVIES_ERROR:
         draft.error = action.error;
         draft.loading = false;
         break;
