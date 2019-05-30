@@ -31,6 +31,34 @@ function checkStatus(response) {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           The response data
  */
+
+export const METHOD_TYPES = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+  PATCH: 'PATCH',
+};
+
+export const callApiJson = (method, headers, body) => {
+  const finalMethod = (method || 'GET').toUpperCase();
+  const finalsHeaders = {
+    'Content-Type': 'application/json',
+    // 'Access-Control-Allow-Credentials': true,
+    // 'Access-Control-Allow-Origin': ,
+    // 'Access-Control-Allow-Methods': 'GET',
+    // Origin: 'http://localhost:3000',
+    ...headers,
+  };
+
+  return {
+    method: finalMethod,
+    headers: finalsHeaders,
+    // mode: 'no-cors',
+    // body,
+  };
+};
+
 export default function request(url, options) {
   return fetch(url, options)
     .then(checkStatus)
