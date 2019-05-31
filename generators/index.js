@@ -7,6 +7,7 @@ const routesGenerator = require('./routes/index.js');
 
 module.exports = plop => {
   // plop.setGenerator('component', componentGenerator);
+  plop.setGenerator('page-container', graphqlContainerGenerator);
   plop.setGenerator('graphql-container', graphqlContainerGenerator);
   plop.setGenerator('routes', routesGenerator);
   plop.addHelper('curly', (object, open) => (open ? '{' : '}'));
