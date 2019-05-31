@@ -2,6 +2,21 @@
 
 A lightweight react redux saga boilerplate
 
+## Bucketlists
+
+### Code Generator
+
+Note:
+Containers should include test while generating.
+
+- page-container
+- stand-alone-container
+- component
+- routes
+
+- Internationalization
+- Test
+
 ## Features
 
 ### Quick scaffolding
