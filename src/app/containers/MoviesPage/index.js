@@ -21,14 +21,11 @@ const key = 'movies';
 const MoviesPage = props => {
   const { getMoviesStart, loading, error, movies } = props;
   const hasMovies = movies && movies.length;
-
-  debugger;
   // @dev useInjectReducer before other react hooks function
   // @dev useInjectSaga before other react hooks function
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
   useEffect(() => {
-    // call action to get movies
     getMoviesStart();
   }, []);
 

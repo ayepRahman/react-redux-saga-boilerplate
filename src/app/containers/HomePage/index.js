@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { Link } from 'react-router-dom';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import styled, { keyframes } from 'styled-components';
 
 import { useInjectReducer } from 'utils/injectReducer';
 import reducer from './reducer';
-// import { useInjectSaga } from 'utils/injectSaga';
 import ReactLogo from 'resources/images/react-logo.png';
 import ReduxLogo from 'resources/images/redux-logo.png';
+
+import routeTemplates from 'utils/routeTemplates';
 
 const rotate = keyframes`
   from {
@@ -39,12 +41,20 @@ const Home = props => {
       </Row>
       <Row className="text-center justify-content-center pt-5">
         <Col xs={6}>
-          <Rotate>
-            <img src={ReactLogo} alt="react-logo" height="150" />
-          </Rotate>
-          <Rotate>
-            <img src={ReduxLogo} alt="react-logo" height="150" />
-          </Rotate>
+          <div className="pb-5">
+            <Rotate>
+              <img src={ReactLogo} alt="react-logo" height="150" />
+            </Rotate>
+            <Rotate>
+              <img src={ReduxLogo} alt="react-logo" height="150" />
+            </Rotate>
+          </div>
+          <div>
+            <Link to={routeTemplates.movies.root}>
+              See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga
+              on the fly.
+            </Link>
+          </div>
         </Col>
       </Row>
     </Container>
