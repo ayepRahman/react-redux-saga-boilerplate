@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'app/containers/HomePage/loadable';
-import NotFoundPage from 'app/containers/NotFoundPage/loadable';
-import MoviesPage from 'app/containers/MoviesPage/loadable';
+import HomePage from 'app/containers/HomePage/Loadable';
+import NotFoundPage from 'app/containers/NotFoundPage/Loadable';
+import MoviesPage from 'app/containers/MoviesPage/Loadable';
 
 import routeTemplates from 'utils/routeTemplates';
 import styled from 'styled-components';

@@ -9,10 +9,14 @@ import styled, { keyframes } from 'styled-components';
 
 import { useInjectReducer } from 'utils/injectReducer';
 import reducer from './reducer';
-import ReactLogo from 'resources/images/react-logo.png';
-import ReduxLogo from 'resources/images/redux-logo.png';
+
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 import routeTemplates from 'utils/routeTemplates';
+
+import ReactLogo from 'resources/images/react-logo.png';
+import ReduxLogo from 'resources/images/redux-logo.png';
 
 const rotate = keyframes`
   from {
@@ -51,8 +55,7 @@ const Home = props => {
           </div>
           <div>
             <Link to={routeTemplates.movies.root}>
-              See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga
-              on the fly.
+              <FormattedMessage {...messages.link} />
             </Link>
           </div>
         </Col>
