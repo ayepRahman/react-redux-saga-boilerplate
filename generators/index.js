@@ -2,13 +2,19 @@ const fs = require('fs');
 const path = require('path');
 
 // const componentGenerator = require('./component/index.js');
-const graphqlContainerGenerator = require('./graphql-container/index.js');
-const routesGenerator = require('./routes/index.js');
+const containerGenerator = require('./container/index.js');
+// const routesGenerator = require('./routes/index.js');
 
 module.exports = plop => {
   // plop.setGenerator('component', componentGenerator);
-  plop.setGenerator('page-container', graphqlContainerGenerator);
-  plop.setGenerator('graphql-container', graphqlContainerGenerator);
-  plop.setGenerator('routes', routesGenerator);
-  plop.addHelper('curly', (object, open) => (open ? '{' : '}'));
+  plop.setGenerator('container', containerGenerator);
+  // plop.addHelper('directory', comp => {
+  //   try {
+  //     fs.accessSync(path.join(__dirname, `../../app/containers/${comp}`), fs.F_OK);
+  //     return `containers/${comp}`;
+  //   } catch (e) {
+  //     return `components/${comp}`;
+  //   }
+  // });
+  // plop.addHelper('curly', (object, open) => (open ? '{' : '}'));
 };
