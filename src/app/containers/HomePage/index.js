@@ -34,7 +34,7 @@ const Rotate = styled.div`
 `;
 
 const Home = props => {
-  useInjectReducer({ key: 'Home', reducer });
+  useInjectReducer({ key: 'home', reducer });
 
   return (
     <Container className="pt-5">

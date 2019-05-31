@@ -14,7 +14,11 @@ import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR } from './constants';
 export const initialState = {
   loading: false,
   error: false,
-  movieApiKey: 'afc79953', // for the sake of demo
+  user: {
+    token: false,
+    username: 'John Doe',
+    role: 'Admin',
+  },
 };
 
 /* eslint-disable default-case, no-param-reassign */
