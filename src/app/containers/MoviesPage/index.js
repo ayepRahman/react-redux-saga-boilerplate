@@ -30,7 +30,7 @@ const MoviesPage = props => {
   }, []);
 
   return (
-    <Container className="text-white pt-5">
+    <Container className="pt-5">
       <Row className="justify-content-center text-center">
         <Col className="pb-5" xs={12}>
           <h1>Movies</h1>

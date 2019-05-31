@@ -8,6 +8,8 @@ import MoviesPage from 'app/containers/MoviesPage/loadable';
 import routeTemplates from 'utils/routeTemplates';
 import styled from 'styled-components';
 
+import GlobalStyle from 'style';
+
 const AppWrapper = styled.div`
   height: 100%;
 `;
@@ -20,6 +22,7 @@ const App = props => {
         <Route exact path={routeTemplates.movies.root} component={MoviesPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
+      <GlobalStyle />
     </AppWrapper>
   );
 };

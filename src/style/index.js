@@ -1,7 +1,10 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
 html,
 body {
   height: 100%;
-  background: #20222a;
+  background: #EEE;
 }
 
 body {
@@ -11,3 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+`;
+
+export default GlobalStyle;

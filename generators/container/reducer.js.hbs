@@ -4,15 +4,32 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import { DEFAULT_ACTION_START, DEFAULT_ACTION_SUCCESS, DEFAULT_ACTION_ERROR } from './constants';
 
-export const initialState = {};
+export const initialState = {
+  loading: false,
+  error: false,
+  data: {}
+};
 
 /* eslint-disable default-case, no-param-reassign */
 const {{ camelCase name }}Reducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
-      case DEFAULT_ACTION:
+      case DEFAULT_ACTION_START:
+        draft.loading = true;
+        draft.error = false;
+        break;
+
+      case DEFAULT_ACTION_SUCCESS:
+        draft.loading = false;
+        draft.error = false;
+        draft.data = action.response
+        break;
+        
+      case DEFAULT_ACTION_ERROR:
+        draft.loading = false;
+        draft.error = action.error;
         break;
     }
   });

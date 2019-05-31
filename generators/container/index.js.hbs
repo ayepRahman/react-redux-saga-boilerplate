@@ -70,12 +70,15 @@ export function {{ properCase name }}() {
 };
 
 {{#if wantActionsAndReducer}}
-const mapStateToProps = createStructuredSelector({
-  {{ camelCase name }}: makeSelect{{properCase name}}(),
+const mapStateToProps = (state,props) => {
+  return createStructuredSelector({
+    {{ camelCase name }}: makeSelect{{properCase name}}(),
 });
+
+} 
 {{/if}}
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     dispatch,
   };
@@ -89,7 +92,4 @@ const withConnect = connect(null, mapDispatchToProps);
 
 export default compose(
   withConnect,
-{{#if memo}}
-  memo,
-{{/if}}
 )({{ properCase name }});

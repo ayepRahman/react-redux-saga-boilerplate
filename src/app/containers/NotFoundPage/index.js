@@ -1,13 +1,16 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const NotFoundPage = props => {
   return (
-    <div className="text-white">
-      <h1>Not Found</h1>
-    </div>
+    <Container className="pt-5">
+      <Row>
+        <Col className="text-center">
+          <h1>Not Found</h1>
+        </Col>
+      </Row>
+    </Container>
   );
 };
-
-NotFoundPage.propTypes = {};
 
 export default NotFoundPage;
