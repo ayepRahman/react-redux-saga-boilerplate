@@ -14,9 +14,7 @@ import { GET_MOVIES_SUCCESS, GET_MOVIES_START, GET_MOVIES_ERROR } from './consta
 export const initialState = {
   loading: false,
   error: false,
-  data: {
-    movies: [],
-  },
+  data: false,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -30,8 +28,7 @@ const moviesReducer = (state = initialState, action) => {
 
       case GET_MOVIES_SUCCESS:
         draft.loading = false;
-        draft.data.movies = action.movies;
-
+        draft.data = action.response;
         break;
 
       case GET_MOVIES_ERROR:

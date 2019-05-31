@@ -28,7 +28,6 @@ const Rotate = styled.div`
 `;
 
 const Home = props => {
-  console.log(props);
   useInjectReducer({ key: 'Home', reducer });
 
   return (

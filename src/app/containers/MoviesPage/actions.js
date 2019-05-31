@@ -34,10 +34,10 @@ export function getMoviesStart() {
  * @param  {string} username The current username
  * @return {object}      An action object with a type of GET_MOVIES_SUCCESS passing the MOVIES
  */
-export function getMoviesSuccess(movies) {
+export function getMoviesSuccess(response) {
   return {
     type: GET_MOVIES_SUCCESS,
-    movies,
+    response,
   };
 }
 

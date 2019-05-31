@@ -24,6 +24,9 @@
     "reselect": "^4.0.0",
     "styled-components": "^4.2.0"
   },
+  "devDependencies": {
+    "react-test-renderer": "^16.8.6"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

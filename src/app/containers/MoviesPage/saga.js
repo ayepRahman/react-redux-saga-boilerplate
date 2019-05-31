@@ -16,11 +16,8 @@ export function* getMovies() {
 
   try {
     const response = yield call(request, requestURL);
-    console.log(response);
-    // passing response to our action to update our reducer
     yield put(getMoviesSuccess(response));
   } catch (err) {
-    // passing error to our action to update our reducer
     yield put(getMoviesError(err));
   }
 }
