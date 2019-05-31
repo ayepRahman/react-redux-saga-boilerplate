@@ -9,8 +9,6 @@ A lightweight react redux saga boilerplate
 Note:
 Containers should include test while generating.
 
-- page-container
-- stand-alone-container
 - component
 - routes
 
