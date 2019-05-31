@@ -45,4 +45,8 @@ const Loading = ({ fullHeight, error, retry, timedOut, pastDelay }) => {
   return <>{fullHeight ? renderPageLoader() : renderLoader()}</>;
 };
 
+Loading.propTypes = {
+  fullHeight: PropTypes.bool, // @dev decide Loading page display
+};
+
 export default Loading;
