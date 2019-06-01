@@ -6,13 +6,8 @@ A lightweight react redux saga boilerplate
 
 ### Code Generator
 
-Note:
-Containers should include test while generating.
-
-- component
 - routes
-
-- Internationalization
+- Internationalization - using react-i18next
 - Test
 
 ## Features
