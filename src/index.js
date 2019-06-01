@@ -32,6 +32,9 @@ const render = messages => {
 };
 
 if (module.hot) {
+  console.log('module', module);
+  console.log('is hot reloading', !!module.hot);
+
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time

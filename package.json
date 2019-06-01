@@ -28,15 +28,21 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
     "@babel/polyfill": "^7.4.4",
-    "react-test-renderer": "^16.8.6"
+    "babel-plugin-react-intl-auto": "^1.7.0",
+    "extract-react-intl-messages": "^1.0.1",
+    "react-test-renderer": "^16.8.6",
+    "shelljs": "^0.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate": "plop --plopfile generators/index.js"
+    "generate": "plop --plopfile generators/index.js",
+    "extract-intl": "node ./scripts/extract-intl.js",
+    "extract-messages": "extract-messages -l=en,de -o src/i18n/translations -d en --flat false 'src/app/**/!(*.test).js'"
   },
   "eslintConfig": {
     "extends": "react-app"
