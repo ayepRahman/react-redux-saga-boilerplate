@@ -29,7 +29,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
+    "@babel/plugin-transform-react-constant-elements": "^7.2.0",
+    "@babel/plugin-transform-react-inline-elements": "^7.2.0",
     "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "babel-plugin-react-intl-auto": "^1.7.0",
     "extract-react-intl-messages": "^1.0.1",
     "react-test-renderer": "^16.8.6",
@@ -42,7 +49,7 @@
     "eject": "react-scripts eject",
     "generate": "plop --plopfile generators/index.js",
     "extract-intl": "node ./scripts/extract-intl.js",
-    "extract-messages": "extract-messages -l=en,de -o src/i18n/translations -d en --flat false 'src/app/**/!(*.test).js'"
+    "extract-messages": "NODE_ENV=development extract-react-intl-messages --locales=en,de,id --output src/i18n/translations 'src/app/**/!(*.test).js'"
   },
   "eslintConfig": {
     "extends": "react-app"

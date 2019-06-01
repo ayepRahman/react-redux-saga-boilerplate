@@ -31,14 +31,14 @@ const Loading = ({ fullHeight, error, retry, timedOut, pastDelay }) => {
             Taking a long time... <Button onClick={retry}>Retry</Button>
           </div>
         )}
-        {pastDelay && <Spinner animation="border" variant="light" />}
+        {pastDelay && <Spinner animation="border" variant="dark" />}
       </LoadingContent>
     </LoadingWrapper>
   );
 
   const renderLoader = () => (
     <div className="p-3 text-center">
-      <Spinner animation="border" variant="light" />
+      <Spinner animation="border" variant="dark" />
     </div>
   );
 
