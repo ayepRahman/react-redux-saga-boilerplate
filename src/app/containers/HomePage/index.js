@@ -35,14 +35,23 @@ const Rotate = styled.div`
 
 const Home = props => {
   const { t, i18n } = useTranslation();
+  console.log(i18n);
   useInjectReducer({ key: 'home', reducer });
+
+  const changeLanguage = lng => {
+    console.log('language', lng);
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <Container className="pt-5">
       <Row className="justify-content-center text-center">
         <Col className="pb-5" xs={12}>
           <h1>{t('React i18next')}</h1>
-          <h1>React Redux Saga Boilerplate</h1>
+          <h1>{t('React Redux Saga Boilerplate')} </h1>
+          <h1>{t('title', 'i love you')} </h1>
+          <button onClick={() => changeLanguage('de')}>de</button>
+          <button onClick={() => changeLanguage('en')}>en</button>
         </Col>
       </Row>
       <Row className="text-center justify-content-center pt-5">

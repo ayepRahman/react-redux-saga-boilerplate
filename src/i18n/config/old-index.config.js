@@ -1,8 +1,6 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const languages = ['en', 'de', 'id', 'ja', 'ru', 'zh-tw'];
-
 module.exports = {
   input: [
     './src/app/components/**/*.{js,jsx}',
@@ -21,8 +19,22 @@ module.exports = {
       list: ['t', 'i18next.t', 'i18n.t'],
       extensions: ['.js', '.jsx'],
     },
-    lngs: languages,
-    ns: ['translations'],
+    trans: {
+      component: 'Trans',
+      i18nKey: 'i18nKey',
+      defaultsKey: 'defaults',
+      extensions: ['.js', '.jsx'],
+      fallbackKey: function(ns, value) {
+        return value;
+      },
+      acorn: {
+        ecmaVersion: 10, // defaults to 10
+        sourceType: 'module', // defaults to 'module'
+        // Check out https://github.com/acornjs/acorn/tree/master/acorn#interface for additional options
+      },
+    },
+    lngs: ['en', 'de', 'id'],
+    ns: ['locale', 'translations'],
     defaultLng: 'en',
     defaultNs: 'translations',
     defaultValue: '__STRING_NOT_TRANSLATED__',
@@ -40,12 +52,15 @@ module.exports = {
     },
   },
   transform: function customTransform(file, enc, done) {
+    // console.log({ file, enc, done });
     const parser = this.parser;
+    console.log('parser', parser);
 
     const content = fs.readFileSync(file.path, enc);
     let count = 0;
 
     parser.parseFuncFromString(content, { list: ['i18next._', 'i18next.__'] }, (key, options) => {
+      // console.log({ key, options });
       parser.set(
         key,
         Object.assign({}, options, {
