@@ -8,7 +8,9 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import history from 'utils/history';
 import configureStore from 'app/store/configureStore';
-import { translationMessages } from 'i18n';
+
+//
+import 'i18n';
 
 import App from 'app/containers/App';
 // import LanguageProvider from 'app/containers/LanguageProvider';

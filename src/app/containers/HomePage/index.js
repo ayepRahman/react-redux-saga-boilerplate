@@ -10,7 +10,7 @@ import styled, { keyframes } from 'styled-components';
 import { useInjectReducer } from 'utils/injectReducer';
 import reducer from './reducer';
 
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import messages from './messages';
 
 import routeTemplates from 'utils/routeTemplates';
@@ -34,12 +34,14 @@ const Rotate = styled.div`
 `;
 
 const Home = props => {
+  const { t, i18n } = useTranslation();
   useInjectReducer({ key: 'home', reducer });
 
   return (
     <Container className="pt-5">
       <Row className="justify-content-center text-center">
         <Col className="pb-5" xs={12}>
+          <h1>{t('React i18next')}</h1>
           <h1>React Redux Saga Boilerplate</h1>
         </Col>
       </Row>
@@ -54,9 +56,7 @@ const Home = props => {
             </Rotate>
           </div>
           <div>
-            <Link to={routeTemplates.movies.root}>
-              <FormattedMessage {...messages.link} />
-            </Link>
+            <Link to={routeTemplates.movies.root}>{t(messages.link)}</Link>
           </div>
         </Col>
       </Row>

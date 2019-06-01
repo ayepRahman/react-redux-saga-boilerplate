@@ -9,9 +9,6 @@ import { defineMessages } from 'react-intl';
 export const scope = 'app.containers.homepage';
 
 export default defineMessages({
-  link: {
-    id: `${scope}.link`,
-    defaultMessage:
-      'See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga on the fly.',
-  },
+  link:
+    'See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga on the fly.',
 });
