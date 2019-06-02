@@ -2,14 +2,6 @@
 
 A lightweight react redux saga boilerplate
 
-## Bucketlists
-
-### Code Generator
-
-- routes
-- Internationalization - using react-i18next
-- Test
-
 ## Features
 
 ### Quick scaffolding
@@ -24,7 +16,11 @@ You can absolute import `import { Button } from 'components/button'`
 
 Build with `react-loadable` a higher-order component (a function that creates a component) which lets you dynamically load any module before rendering it into your app.
 
-### Out of the box React Ui/Css framework (React-bootstrap)
+### Internationalization framework
+
+The module provides multiple components eg. to assert that needed translations get loaded or that your content gets rendered when the language changes.
+
+### Out of the box React Ui/CSS framework (React-bootstrap)
 
 By default we're using [react-boostrap](https://react-bootstrap.github.io) for our react ui framework.
 
@@ -57,3 +53,11 @@ This will allow you to do imports like
 2. Styled Components
 
 By default code generator give you an option to use styled-components
+
+## Bucketlists
+
+### Code Generator
+
+- routes
+- Internationalization - using react-i18next
+- Test
