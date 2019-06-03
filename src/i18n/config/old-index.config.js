@@ -52,9 +52,8 @@ module.exports = {
     },
   },
   transform: function customTransform(file, enc, done) {
-    // console.log({ file, enc, done });
     const parser = this.parser;
-    console.log('parser', parser);
+    // console.log('parser', parser);
 
     const content = fs.readFileSync(file.path, enc);
     let count = 0;

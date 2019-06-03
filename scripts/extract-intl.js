@@ -15,8 +15,6 @@ const animateProgress = require('./helpers/progress');
 const addCheckmark = require('./helpers/checkmark');
 
 const { appLocales, DEFAULT_LOCALE } = require('../src/i18n');
-console.log('appLocales', appLocales);
-console.log('DEFAULT_LOCALE', DEFAULT_LOCALE);
 
 const babel = require('../babel.config.js');
 const { presets } = babel;
