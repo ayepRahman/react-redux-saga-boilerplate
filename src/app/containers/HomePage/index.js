@@ -49,6 +49,9 @@ const Home = props => {
           <h1>{t('desc', 'Some description')} </h1>
           <button onClick={() => changeLanguage('de')}>de</button>
           <button onClick={() => changeLanguage('en')}>en</button>
+          <button onClick={() => changeLanguage('ja')}>ja</button>
+          <button onClick={() => changeLanguage('ru')}>ru</button>
+          <button onClick={() => changeLanguage('id')}>id</button>
         </Col>
       </Row>
       <Row className="text-center justify-content-center pt-5">

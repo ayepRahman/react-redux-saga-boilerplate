@@ -6,6 +6,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import enTranslation from 'i18n/locales/en/translations.json';
 import deTranslation from 'i18n/locales/de/translations.json';
 import idTranslation from 'i18n/locales/id/translations.json';
+import jaTranslation from 'i18n/locales/ja/translations.json';
+import ruTranslation from 'i18n/locales/ru/translations.json';
 
 // the translations
 // (tip move them in a JSON file and import them)
@@ -18,6 +20,12 @@ const resources = {
   },
   id: {
     translations: idTranslation,
+  },
+  ja: {
+    translations: jaTranslation,
+  },
+  ru: {
+    translations: ruTranslation,
   },
 };
 
