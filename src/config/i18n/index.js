@@ -1,7 +1,7 @@
-const { languages } = require('../../i18n/constants.js');
 const fs = require('fs');
 const chalk = require('chalk');
 
+const { languages } = require('../../i18n/constants.js');
 const funcLists = ['t', 'i18next.t', 'i18n.t', 'this.props.t', 'props.t'];
 
 module.exports = {

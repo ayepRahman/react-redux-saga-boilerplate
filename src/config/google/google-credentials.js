@@ -13,7 +13,8 @@ const credentials = {
     'https://www.googleapis.com/robot/v1/metadata/x509/ayeprahman%40react-redux-saga-boilerplate.iam.gserviceaccount.com',
 };
 
-const stringifyJson = JSON.stringify(credentials);
+const test = JSON.stringify(credentials);
+const stringifyJson = JSON.parse(test);
 console.log(stringifyJson);
 
-export default stringifyJson;
+module.export = stringifyJson;

@@ -1,15 +1,20 @@
 const jsonfile = require('jsonfile');
+const chalk = require('chalk');
+
 const { languages } = require('../src/i18n/constants');
+
+console.log(chalk.cyan(`Starting...`));
 
 function extractAndDestroy(lng) {
   const file = `src/i18n/locales/${lng}/translations.json`;
-  console.log(file);
-  console.log({ lng });
 
   if (lng !== 'en') {
-    jsonfile.writeFile(file, {}, function(err) {
-      if (err) console.error(err);
-    });
+    jsonfile
+      .writeFile(file, {})
+      .then(res => {
+        console.log(chalk.green(`Remove from ${file} successfully`));
+      })
+      .catch(error => console.error(chalk.red(error)));
   }
 }
 
