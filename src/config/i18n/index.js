@@ -1,5 +1,8 @@
+const { languages } = require('../../i18n/constants.js');
 const fs = require('fs');
 const chalk = require('chalk');
+
+const funcLists = ['t', 'i18next.t', 'i18n.t', 'this.props.t', 'props.t'];
 
 module.exports = {
   input: [
@@ -11,33 +14,28 @@ module.exports = {
     './src/!i18n/**',
     '!**/node_modules/**',
   ],
+  sort: true,
   output: './src/i18n/locales',
   options: {
     debug: true,
     func: {
-      // @ dev important to include 't' which is a function from useTranslation
-      list: ['t', 'i18next.t', 'i18n.t'],
+      // @dev important to include 't' when use i18n hook function from useTranslation()
+      list: funcLists,
       extensions: ['.js', '.jsx'],
     },
-    trans: {
-      component: 'Trans',
-      i18nKey: 'i18nKey',
-      defaultsKey: 'defaults',
-      extensions: ['.js', '.jsx'],
-      fallbackKey: function(ns, value) {
-        return value;
-      },
-      acorn: {
-        ecmaVersion: 10, // defaults to 10
-        sourceType: 'module', // defaults to 'module'
-        // Check out https://github.com/acornjs/acorn/tree/master/acorn#interface for additional options
-      },
-    },
-    lngs: ['en', 'de', 'id'],
-    ns: ['locale', 'translations'],
+    lngs: languages,
+    ns: ['translations'],
     defaultLng: 'en',
     defaultNs: 'translations',
-    defaultValue: '__STRING_NOT_TRANSLATED__',
+    defaultValue: function(lng, ns, key) {
+      console.log('lng', lng);
+      if (lng === 'en') {
+        // Return key as the default value for English language
+        return key;
+      } else if (lng !== 'en') {
+        return '';
+      }
+    },
     resource: {
       loadPath: '{{lng}}/{{ns}}.json',
       savePath: '{{lng}}/{{ns}}.json',
@@ -53,13 +51,11 @@ module.exports = {
   },
   transform: function customTransform(file, enc, done) {
     const parser = this.parser;
-    // console.log('parser', parser);
-
     const content = fs.readFileSync(file.path, enc);
     let count = 0;
 
-    parser.parseFuncFromString(content, { list: ['i18next._', 'i18next.__'] }, (key, options) => {
-      // console.log({ key, options });
+    parser.parseFuncFromString(content, { list: funcLists }, (key, options) => {
+      // console.log({ content, key, options });
       parser.set(
         key,
         Object.assign({}, options, {
@@ -67,12 +63,13 @@ module.exports = {
           keySeparator: false,
         }),
       );
+
       ++count;
     });
 
     if (count > 0) {
       console.log(
-        `i18next-scanner: count=${chalk.cyan(count)}, file=${chalk.yellow(
+        `[i18next-scanner]: count=${chalk.cyan(count)}, file=${chalk.yellow(
           JSON.stringify(file.relative),
         )}`,
       );
