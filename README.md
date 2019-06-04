@@ -10,7 +10,7 @@ Create components, containers, routes, selectors and sagas right from the CLI!
 
 ### Absolute Import Path
 
-You can absolute import `import { Button } from 'components/button'`
+You can absolute import e.g `import { Button } from 'components/button'`
 
 ### Component-centric splitting
 
@@ -52,12 +52,9 @@ This will allow you to do imports like
 
 2. Styled Components
 
-By default code generator give you an option to use styled-components
+By default, code generator give you an option to use styled-components
 
-## Bucketlists
+## Todolists
 
-### Code Generator
-
-- routes
-- Internationalization - using react-i18next
-- Test
+- generator - routes
+- README.md features quick start and faqs
