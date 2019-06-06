@@ -59,3 +59,5 @@ By default, code generator give you an option to use styled-components
 - Navbar with dropdown language selector
 - generator - routes
 - README.md features quick start and faqs
+
+- NOTES! update instruction on using `yarn extract-messages` script
