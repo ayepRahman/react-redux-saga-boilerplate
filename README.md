@@ -2,7 +2,7 @@
 
 # react-redux-saga-boilerplate
 
-A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices.
+A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices. This project uses React Hook functionality like a custom useReducer and useSaga for code-splitting.
 
 ## Quick Start
 

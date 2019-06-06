@@ -15,13 +15,13 @@ export function defaultActionStart() {
 export function defaultActionSuccess(response) {
   return {
     type: DEFAULT_ACTION_SUCCESS,
-    response
+    response,
   };
 }
 
-export function defaultActionStart(error) {
+export function defaultActionError(error) {
   return {
     type: DEFAULT_ACTION_ERROR,
-    error
+    error,
   };
 }

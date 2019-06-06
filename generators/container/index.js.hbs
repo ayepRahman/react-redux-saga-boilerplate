@@ -32,28 +32,28 @@ import { useInjectSaga } from 'utils/injectSaga';
 {{/if}}
 {{#if wantActionsAndReducer}}
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelect{{properCase name}} from './selectors';
+import { makeSelect{{properCase name}}State } from './selectors';
 import reducer from './reducer';
 {{/if}}
 {{#if wantSaga}}
 import saga from './saga';
 {{/if}}
-
-wantRouteTemplate
 {{#if wantRouteTemplate}}
+import routeTemplates from 'utils/routeTemplates';
 {{/if}}
 
 
 export function {{ properCase name }}() {
   {{#if wantMessages}}
+  // @dev args for t('key', 'text')
   const { t, i18n } = useTranslation();
   {{/if}}
-  // @dev useInjectReducer should always be after hooks function
   {{#if wantActionsAndReducer}}
+  // @dev useInjectReducer should always be after hooks function
   useInjectReducer({ key: '{{ camelCase name }}', reducer });
   {{/if}}
-  // @dev useInjectSaga should always be after hooks function
   {{#if wantSaga}}
+  // @dev useInjectSaga should always be after hooks function
   useInjectSaga({ key: '{{ camelCase name }}', saga });
   {{/if}}
 
@@ -66,7 +66,7 @@ export function {{ properCase name }}() {
       </Helmet>
     {{/if}}
     {{#if wantMessages}}
-      <FormattedMessage {...messages.header} />
+      <h1>{t('title', '{{ properCase name }}')}</h1>
     {{/if}}
     </div>
   );
@@ -79,7 +79,7 @@ export function {{ properCase name }}() {
 {{#if wantActionsAndReducer}}
 const mapStateToProps = (state,props) => {
   return createStructuredSelector({
-    {{ camelCase name }}: makeSelect{{properCase name}}(),
+    {{ camelCase name }}: makeSelect{{properCase name}}State(),
 });
 
 } 

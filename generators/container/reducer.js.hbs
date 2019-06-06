@@ -13,8 +13,8 @@ export const initialState = {
 };
 
 /* eslint-disable default-case, no-param-reassign */
-const {{ camelCase name }}Reducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+const {{ camelCase name }}Reducer = (state = initialState, action) => {
+  return produce(state, draft => {
     switch (action.type) {
       case DEFAULT_ACTION_START:
         draft.loading = true;
@@ -33,5 +33,7 @@ const {{ camelCase name }}Reducer = (state = initialState, action) =>
         break;
     }
   });
+}
+
 
 export default {{ camelCase name }}Reducer;

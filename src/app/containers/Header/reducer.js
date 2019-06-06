@@ -9,12 +9,12 @@ import { DEFAULT_ACTION_START, DEFAULT_ACTION_SUCCESS, DEFAULT_ACTION_ERROR } fr
 export const initialState = {
   loading: false,
   error: false,
-  data: {}
+  data: {},
 };
 
 /* eslint-disable default-case, no-param-reassign */
 const headerReducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+  produce(state, draft => {
     switch (action.type) {
       case DEFAULT_ACTION_START:
         draft.loading = true;
@@ -24,9 +24,9 @@ const headerReducer = (state = initialState, action) =>
       case DEFAULT_ACTION_SUCCESS:
         draft.loading = false;
         draft.error = false;
-        draft.data = action.response
+        draft.data = action.response;
         break;
-        
+
       case DEFAULT_ACTION_ERROR:
         draft.loading = false;
         draft.error = action.error;
