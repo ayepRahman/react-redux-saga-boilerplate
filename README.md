@@ -56,5 +56,6 @@ By default, code generator give you an option to use styled-components
 
 ## Todolists
 
+- Navbar with dropdown language selector
 - generator - routes
 - README.md features quick start and faqs
