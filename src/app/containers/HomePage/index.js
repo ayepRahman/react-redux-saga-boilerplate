@@ -66,7 +66,10 @@ const Home = props => {
           </div>
           <div>
             <Link to={routeTemplates.movies.root}>
-              {t(messages.link.key, messages.link.defaultMessage)}
+              {t(
+                'link',
+                'See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga on the fly.',
+              )}
             </Link>
           </div>
         </Col>
