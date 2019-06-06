@@ -32,10 +32,6 @@ $ yarn start
 
 Create components, containers, routes, selectors and sagas right from the CLI!
 
-### Absolute Import Path
-
-You can absolute import e.g `import { Button } from 'components/button'`
-
 ### Component-centric splitting
 
 Build with `react-loadable` a higher-order component (a function that creates a component) which lets you dynamically load any module before rendering it into your app.
@@ -47,6 +43,10 @@ The module provides multiple components eg. to assert that needed translations g
 ### Out of the box React Ui/CSS framework (React-bootstrap)
 
 By default we're using [react-boostrap](https://react-bootstrap.github.io) for our react ui framework.
+
+### Absolute Import Path
+
+You can absolute import e.g `import { Button } from 'components/button'`
 
 ### Styling (SASS, styled-components)
 
@@ -87,9 +87,5 @@ By default, code generator give you an option to use styled-components
 - Navbar with dropdown language selector
 - generator - routes
 - README.md features quick start and faqs
-
-- NOTES! update instruction on using `yarn extract-messages` script
-
-```
-
-```
+- hot reload for extract and auto transalte text
+- update instruction on using `yarn extract-messages` script
