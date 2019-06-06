@@ -1,3 +1,5 @@
+![react-redux-saga-boiolerplate](https://codemotion.ninja/wp-content/uploads/2018/09/Using-Redux-saga-with-React.jpg)
+
 # react-redux-saga-boilerplate
 
 A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices.
@@ -28,7 +30,7 @@ $ yarn start
 
 ## Flow Chart
 
-![alt text](https://cdn-images-1.medium.com/max/800/1*y-qgopNVlYcVrXgM84iPfA.jpeg)
+![flow chart](https://cdn-images-1.medium.com/max/800/1*y-qgopNVlYcVrXgM84iPfA.jpeg)
 
 ## Features
 
@@ -145,4 +147,3 @@ Options:
 - generator - routes
 - README.md features quick start and faqs
 - hot reload for extract and auto transalte text
-- update instruction on using `yarn extract-messages` script
