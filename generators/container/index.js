@@ -58,6 +58,12 @@ module.exports = {
       default: true,
       message: 'Do you want to load resources asynchronously?',
     },
+    {
+      type: 'confirm',
+      name: 'wantRouteTemplate',
+      default: true,
+      message: 'Do you want to add route teamplates utils?',
+    },
   ],
   actions: data => {
     // Generate index.js and index.test.js

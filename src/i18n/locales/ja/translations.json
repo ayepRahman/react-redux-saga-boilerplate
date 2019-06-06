@@ -1,4 +1,5 @@
 {
   "title": "React Redux Sagaボイラープレート",
-  "desc": "いくつかの説明"
+  "desc": "いくつかの説明",
+  "link": "その場でuseReducerとuseSagaのコード分割を見るために、Movies Example、Open up Redux Toolを見てください。"
 }

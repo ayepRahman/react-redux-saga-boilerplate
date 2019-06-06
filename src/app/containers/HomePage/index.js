@@ -11,14 +11,10 @@ import { useInjectReducer } from 'utils/injectReducer';
 import reducer from './reducer';
 
 import { useTranslation } from 'react-i18next';
-import messages from './messages';
-
 import routeTemplates from 'utils/routeTemplates';
 
 import ReactLogo from 'resources/images/react-logo.png';
 import ReduxLogo from 'resources/images/redux-logo.png';
-
-console.log(typeof messages.link.key);
 
 const rotate = keyframes`
   from {
