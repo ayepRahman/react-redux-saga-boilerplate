@@ -19,6 +19,11 @@ import Pagination from './Pagination';
 
 const key = 'movies';
 
+/**
+ *  TODO: instead of using location searcg to trigger useEffect
+ * we disptach an action that set our meta data in our reducer
+ * */
+
 const MoviesPage = props => {
   const { getMoviesStart, loading, error, movies } = props;
   const hasMovies = movies && movies.length;

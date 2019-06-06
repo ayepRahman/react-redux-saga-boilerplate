@@ -11,7 +11,6 @@ import { makeSelectRouteParams } from './selectors';
 
 const Pagination = props => {
   const { routeParams } = props;
-  console.log(routeParams);
 
   const onPageChange = pageNumber => {
     const params = new URLSearchParams(props.location.search);
