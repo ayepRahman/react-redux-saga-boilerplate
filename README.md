@@ -26,6 +26,10 @@ $ npm run start
 $ yarn start
 ```
 
+## Flow Chart
+
+![alt text]('./src/resources/images/rrs-flow.jpeg')
+
 ## Features
 
 ### Quick scaffolding
