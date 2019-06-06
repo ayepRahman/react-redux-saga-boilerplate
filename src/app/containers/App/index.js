@@ -27,6 +27,7 @@ const AppWrapper = styled.div`
 const App = props => {
   return (
     <AppWrapper>
+      <Header />
       <Switch>
         <Route exact path={routeTemplates.root} component={HomePage} />
         <Route exact path={routeTemplates.movies.root} component={MoviesPage} />

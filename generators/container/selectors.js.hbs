@@ -5,12 +5,26 @@ import { initialState } from './reducer';
  * Direct selector to the {{ camelCase name }} state domain
  */
 
-const makeSelect{{ properCase name }}State = state => state.{{ camelCase name }} || initialState;
+const select{{ properCase name }}Domain = state => state.{{ camelCase name }} || initialState;
+
+const makeSelect{{ properCase name }}State = () => createSelector( select{{ properCase name }}Domain, subState => subState);
 
 /**
  * Other specific selectors
  */
 
+const makeSelectLoading = () =>
+  createSelector(
+    select{{ properCase name }}Domain,
+    state => state.loading,
+  );
+
+const makeSelectError = () =>
+  createSelector(
+    select{{ properCase name }}Domain,
+    state => state.error,
+  );
 
 
-export { makeSelect{{ properCase name }}State };
+
+export { makeSelect{{ properCase name }}State, makeSelectLoading, makeSelectError };

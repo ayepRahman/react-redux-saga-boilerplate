@@ -32,7 +32,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 {{/if}}
 {{#if wantActionsAndReducer}}
 import { useInjectReducer } from 'utils/injectReducer';
-import { makeSelect{{properCase name}}State } from './selectors';
+import { makeSelect{{properCase name}}State, makeSelectLoading, makeSelectError} from './selectors';
 import reducer from './reducer';
 {{/if}}
 {{#if wantSaga}}
@@ -80,6 +80,8 @@ export function {{ properCase name }}() {
 const mapStateToProps = (state,props) => {
   return createStructuredSelector({
     {{ camelCase name }}: makeSelect{{properCase name}}State(),
+    loading: makeSelectLoading(),
+    error: makeSelectError()
 });
 
 } 

@@ -5,23 +5,33 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-const makeSelectMoviesState = state => state.movies || initialState;
+/**
+ * Direct selector to the header state domain
+ */
+
+const selectMoviesStateDomain = state => state.movies || initialState;
+
+const makeSelectMoviesState = () =>
+  createSelector(
+    selectMoviesStateDomain,
+    subState => subState,
+  );
 
 const makeSelectLoading = () =>
   createSelector(
-    makeSelectMoviesState,
+    selectMoviesStateDomain,
     moviesState => moviesState.loading,
   );
 
 const makeSelectError = () =>
   createSelector(
-    makeSelectMoviesState,
+    selectMoviesStateDomain,
     moviesState => moviesState.error,
   );
 
 const makeSelectMovies = () =>
   createSelector(
-    makeSelectMoviesState,
+    selectMoviesStateDomain,
     moviesState => moviesState.data && moviesState.data.results, // movies array
   );
 
