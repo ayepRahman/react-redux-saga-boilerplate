@@ -11,7 +11,7 @@ A lightweight react redux saga boilerplate for a scalable developement that focu
 ```
 $ npm install
 
-or
+#or
 
 $ yarn
 ```
@@ -21,7 +21,7 @@ $ yarn
 ```
 $ npm run start
 
-or
+#or
 
 $ yarn start
 ```
@@ -53,16 +53,20 @@ You can absolute import e.g `import { Button } from 'components/button'`
 This project bootstrap using Create React App. Check the styling guide below.
 [Create React App Styling Guide](https://facebook.github.io/create-react-app/docs/adding-a-sass-stylesheet)
 
-1. SASS
+1. Styled Components (recommended!)
+
+Visual primitives for the component age.
+Use the best bits of ES6 and CSS to style your apps without stress
+By default, code generator give you an option to use styled-components
+
+2. SASS
 
 To use Sass, first install node-sass:
 
 ```
-
 $ npm install node-sass --save
 $ # or
 \$ yarn add node-sass
-
 ```
 
 Now you can rename src/App.css to src/App.scss and update src/App.js to import src/App.scss. This file and any other file will be automatically compiled if imported with the extension .scss or .sass.
@@ -72,15 +76,54 @@ To share variables between Sass files, you can use Sass imports. For example, sr
 This will allow you to do imports like
 
 ```
-
 @import 'styles/\_colors.scss'; // assuming a styles directory under src/
 @import '~nprogress/nprogress'; // importing a css file from the nprogress node module
+```
+
+## Available Scripts:
+
+### Running extract messages and auto translate.
+
+This script allow extracting messages from i18next translation function `t('key','value')` ,auto transalte using google cloud translation and add to `src/i18n/locales/` directories.
+
+```
+\$ npm run extract-messages
+
+#or
+
+\$ yarn extract-messages
 
 ```
 
-2. Styled Components
+#### Directory Structure
 
-By default, code generator give you an option to use styled-components
+Your locales directory should look like this:
+
+```
+locales
+├── de
+├── en
+│   ├── translations.json
+├── fr
+└── it
+```
+
+#### Available options
+
+```
+Options:
+  -i, --input <inputDir> the directory containing language directories (default: ".")
+  -l, --source-language <sourceLang> specify the source language (default: "en")
+  -t, --type <key-based|natural|auto> specify the file structure type (default: "auto")
+  -s, --service <service> selects the service to be used for translation (default: "google-translate")
+  --list-services outputs a list of available services
+  -m, --matcher <matcher> selects the matcher to be used for interpolations (default: "icu")
+  --list-matchers outputs a list of available matchers
+  -c, --config <value> supply a config parameter (e.g. path to key file) to the translation service
+  -f, --fix-inconsistencies automatically fixes inconsistent key-value pairs by setting the value to the key
+  -d, --delete-unused-strings deletes strings in translation files that don't exist in the template
+  -h, --help output usage information
+```
 
 ## Todolists
 
