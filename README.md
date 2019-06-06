@@ -1,6 +1,30 @@
 # react-redux-saga-boilerplate
 
-A lightweight react redux saga boilerplate
+A lightweight react redux saga boilerplate for a scalable developement that focus on performance and best practices.
+
+## Quick Start
+
+- git clone project
+  `git clone https://github.com/ayepRahman/react-redux-saga-boilerplate.git`
+- install dependencies
+
+```
+$ npm install
+
+or
+
+$ yarn
+```
+
+- to run the project, server will run on `http://localhost:3000/`
+
+```
+$ npm run start
+
+or
+
+$ yarn start
+```
 
 ## Features
 
@@ -34,9 +58,11 @@ This project bootstrap using Create React App. Check the styling guide below.
 To use Sass, first install node-sass:
 
 ```
+
 $ npm install node-sass --save
 $ # or
-$ yarn add node-sass
+\$ yarn add node-sass
+
 ```
 
 Now you can rename src/App.css to src/App.scss and update src/App.js to import src/App.scss. This file and any other file will be automatically compiled if imported with the extension .scss or .sass.
@@ -46,8 +72,10 @@ To share variables between Sass files, you can use Sass imports. For example, sr
 This will allow you to do imports like
 
 ```
-@import 'styles/_colors.scss'; // assuming a styles directory under src/
+
+@import 'styles/\_colors.scss'; // assuming a styles directory under src/
 @import '~nprogress/nprogress'; // importing a css file from the nprogress node module
+
 ```
 
 2. Styled Components
@@ -61,3 +89,7 @@ By default, code generator give you an option to use styled-components
 - README.md features quick start and faqs
 
 - NOTES! update instruction on using `yarn extract-messages` script
+
+```
+
+```
