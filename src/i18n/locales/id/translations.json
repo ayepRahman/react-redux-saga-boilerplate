@@ -1,5 +1,4 @@
 {
   "title": "Bereaksi Redux Saga Boilerplate",
-  "desc": "Beberapa deskripsi",
-  "link": "Lihat Contoh Film, Buka Alat Redux untuk melihat pemisahan kode useReducer dan useSaga on the fly."
+  "desc": "Beberapa deskripsi"
 }

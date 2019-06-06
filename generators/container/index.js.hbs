@@ -20,7 +20,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 {{/if}}
 {{#if wantMessages}}
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 {{/if}}
 {{#if wantActionsAndReducer}}
 import { createStructuredSelector } from 'reselect';
@@ -38,14 +38,17 @@ import reducer from './reducer';
 {{#if wantSaga}}
 import saga from './saga';
 {{/if}}
-{{#if wantMessages}}
-import messages from './messages';
-{{/if}}
+
 
 export function {{ properCase name }}() {
+  {{#if wantMessages}}
+  const { t, i18n } = useTranslation();
+  {{/if}}
+  // @dev useInjectReducer should always be after hooks function
   {{#if wantActionsAndReducer}}
   useInjectReducer({ key: '{{ camelCase name }}', reducer });
   {{/if}}
+  // @dev useInjectSaga should always be after hooks function
   {{#if wantSaga}}
   useInjectSaga({ key: '{{ camelCase name }}', saga });
   {{/if}}

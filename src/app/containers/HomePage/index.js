@@ -18,6 +18,8 @@ import routeTemplates from 'utils/routeTemplates';
 import ReactLogo from 'resources/images/react-logo.png';
 import ReduxLogo from 'resources/images/redux-logo.png';
 
+console.log(typeof messages.link.key);
+
 const rotate = keyframes`
   from {
     transform: rotate(0deg);

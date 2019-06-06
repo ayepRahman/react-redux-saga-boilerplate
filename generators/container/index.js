@@ -50,7 +50,7 @@ module.exports = {
       type: 'confirm',
       name: 'wantMessages',
       default: true,
-      message: 'Do you want i18n messages (i.e. will this component use text)?',
+      message: 'Do you want i18next messages (i.e. will this component use internationalization)?',
     },
     {
       type: 'confirm',
@@ -77,14 +77,14 @@ module.exports = {
     ];
 
     // If component wants messages
-    if (data.wantMessages) {
-      actions.push({
-        type: 'add',
-        path: '../src/app/containers/{{properCase name}}/messages.js',
-        templateFile: './container/messages.js.hbs',
-        abortOnFail: true,
-      });
-    }
+    // if (data.wantMessages) {
+    //   actions.push({
+    //     type: 'add',
+    //     path: '../src/app/containers/{{properCase name}}/messages.js',
+    //     templateFile: './container/messages.js.hbs',
+    //     abortOnFail: true,
+    //   });
+    // }
 
     // If they want actions and a reducer, generate actions.js, constants.js,
     // reducer.js and the corresponding tests for actions and the reducer
