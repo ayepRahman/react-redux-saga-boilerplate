@@ -15,6 +15,11 @@ export const initialState = {
   loading: false,
   error: false,
   data: false,
+  meta: {
+    queryString: '',
+    page: 1,
+    sort: false,
+  },
 };
 
 /* eslint-disable default-case, no-param-reassign */

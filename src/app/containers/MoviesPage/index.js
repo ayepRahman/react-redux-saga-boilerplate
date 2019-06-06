@@ -14,7 +14,7 @@ import saga from './saga';
 import { getMoviesStart } from './actions';
 import { makeSelectLoading, makeSelectError, makeSelectMovies } from './selectors';
 
-import MovieCard from './MovieCard';
+import Table from './Table';
 
 const key = 'movies';
 
@@ -39,16 +39,12 @@ const MoviesPage = props => {
       <Row>
         {loading && (
           <Col className="text-center" xs={12}>
-            <Spinner animation="grow" variant="light" />
+            <Spinner animation="grow" variant="dark" />
           </Col>
         )}
         {error && !!error && <Alert variant="danger">{error}</Alert>}
-        {hasMovies &&
-          movies.map(movie => (
-            <Col key={movie.id} className="pb-4 text-dark" xs={4}>
-              <MovieCard movie={movie} />
-            </Col>
-          ))}
+        {hasMovies && <Table movies={movies} />}
+        {/* {hasMovies && <Pagination movies={movies} />} */}
       </Row>
     </Container>
   );

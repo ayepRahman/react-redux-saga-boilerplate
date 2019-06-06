@@ -12,7 +12,7 @@ import request from 'utils/request';
 const API_KEY = process.env.REACT_APP_MOVIE_API_KEY || '6878e823788381b9f6763114fff23334';
 
 export function* getMovies() {
-  const requestURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+  const requestURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&language=en&sort_by=popularity.desc&page=1`;
 
   try {
     const response = yield call(request, requestURL);

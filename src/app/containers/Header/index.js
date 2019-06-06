@@ -41,7 +41,6 @@ export function Header(props) {
 
   return (
     <>
-      {/* <h1>{t('title', 'Header')}</h1> */}
       <Navbar bg="light" expand="lg">
         <Navbar.Brand role="button" onClick={() => history.push(routeTemplates.root)}>
           React-Redux-Saga-Boilerplate
@@ -50,10 +49,10 @@ export function Header(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link onClick={() => history.push(routeTemplates.root)}>
-              {t('navbar-link-home', 'Home')}{' '}
+              {t('navbar-link-home', 'Home')}
             </Nav.Link>
             <Nav.Link onClick={() => history.push(routeTemplates.movies.root)}>
-              {t('navbar-link-movies', 'Movies')}{' '}
+              {t('navbar-link-movies', 'Movies')}
             </Nav.Link>
             <NavDropdown
               alignRight

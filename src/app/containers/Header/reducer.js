@@ -9,7 +9,7 @@ import { DEFAULT_ACTION_START, DEFAULT_ACTION_SUCCESS, DEFAULT_ACTION_ERROR } fr
 export const initialState = {
   loading: false,
   error: false,
-  data: {},
+  language: 'en',
 };
 
 /* eslint-disable default-case, no-param-reassign */

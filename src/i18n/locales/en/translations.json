@@ -1,10 +1,14 @@
 {
   "key": "text",
-  "title": "Header",
   "navbar-link-home": "Home",
   "navbar-link-movies": "Movies",
   "navbar-link-dropdown": "Language",
   "home-title": "React Redux Saga Boilerplate",
   "home-desc": "A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices. This project uses React Hook functionality like a custom useReducer and useSaga for code-splitting",
-  "link": "See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga on the fly."
+  "link": "See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga on the fly.",
+  "table-header-image": "Image",
+  "table-header-title": "Title",
+  "table-header-overview": "Overview",
+  "table-header-popularity": "Popularity",
+  "table-header-release-date": "Date"
 }

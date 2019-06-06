@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Link } from 'react-router-dom';
-
 import { Container, Row, Col } from 'react-bootstrap';
-import styled, { keyframes } from 'styled-components';
 
 import { useInjectReducer } from 'utils/injectReducer';
 import reducer from './reducer';
