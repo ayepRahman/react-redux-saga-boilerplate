@@ -1,4 +1,5 @@
 {
   "title": "React Redux Saga Boilerplate",
-  "desc": "Some description"
+  "desc": "Некоторое описание",
+  "link": "См. Пример фильма, Откройте инструмент Redux, чтобы увидеть разделение кода useReducer и useSaga на лету."
 }
