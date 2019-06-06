@@ -25,6 +25,9 @@ import { useTranslation } from 'react-i18next';
 {{#if wantActionsAndReducer}}
 import { createStructuredSelector } from 'reselect';
 {{/if}}
+{{#if wantRoute}}
+import { withRouter } from 'react-router-dom'
+{{/if}}
 import { compose } from 'redux';
 
 {{#if wantSaga}}
@@ -38,12 +41,12 @@ import reducer from './reducer';
 {{#if wantSaga}}
 import saga from './saga';
 {{/if}}
-{{#if wantRouteTemplate}}
+{{#if wantRoute}}
 import routeTemplates from 'utils/routeTemplates';
 {{/if}}
 
 
-export function {{ properCase name }}() {
+export const {{ properCase name }} = (props) => {
   {{#if wantMessages}}
   // @dev args for t('key', 'text')
   const { t, i18n } = useTranslation();
@@ -66,7 +69,8 @@ export function {{ properCase name }}() {
       </Helmet>
     {{/if}}
     {{#if wantMessages}}
-      <h1>{t('title', '{{ properCase name }}')}</h1>
+      {/* @dev remember to add prefix to 'key' args */}
+      <h1>{t('{{ snakeCase }}_title', '{{ properCase name }}')}</h1>
     {{/if}}
     </div>
   );
@@ -100,5 +104,8 @@ const withConnect = connect(null, mapDispatchToProps);
 {{/if}}
 
 export default compose(
+  {{#if wantRoute}}
+  withRouter,
+  {{/if}}
   withConnect,
 )({{ properCase name }});

@@ -60,9 +60,9 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'wantRouteTemplate',
+      name: 'wantRoute',
       default: true,
-      message: 'Do you want to add route teamplates utils?',
+      message: 'Do you want to add route router for declarative routing?',
     },
   ],
   actions: data => {

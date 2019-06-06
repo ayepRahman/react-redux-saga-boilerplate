@@ -13,54 +13,30 @@ import reducer from './reducer';
 import { useTranslation } from 'react-i18next';
 import routeTemplates from 'utils/routeTemplates';
 
-import ReactLogo from 'resources/images/react-logo.png';
-import ReduxLogo from 'resources/images/redux-logo.png';
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-const Rotate = styled.div`
-  display: inline-block;
-  animation: ${rotate} 5s linear infinite;
-`;
-
 const Home = props => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   useInjectReducer({ key: 'home', reducer });
-
-  const changeLanguage = lng => {
-    i18n.changeLanguage(lng);
-  };
 
   return (
     <Container className="pt-5">
       <Row className="justify-content-center text-center">
-        <Col className="pb-5" xs={12}>
-          <h1>{t('title', 'React Redux Saga Boilerplate')} </h1>
-          <h1>{t('desc', 'Some description')} </h1>
-          <button onClick={() => changeLanguage('de')}>de</button>
-          <button onClick={() => changeLanguage('en')}>en</button>
-          <button onClick={() => changeLanguage('ja')}>ja</button>
-          <button onClick={() => changeLanguage('ru')}>ru</button>
-          <button onClick={() => changeLanguage('id')}>id</button>
+        <Col className="pb-3" xs={8}>
+          <h1>{t('home-title', 'React Redux Saga Boilerplate')} </h1>
+          <p>
+            {t(
+              'home-desc',
+              'A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices. This project uses React Hook functionality like a custom useReducer and useSaga for code-splitting',
+            )}{' '}
+          </p>
         </Col>
       </Row>
-      <Row className="text-center justify-content-center pt-5">
-        <Col xs={6}>
+      <Row className="text-center justify-content-center">
+        <Col xs={12}>
           <div className="pb-5">
-            <Rotate>
-              <img src={ReactLogo} alt="react-logo" height="150" />
-            </Rotate>
-            <Rotate>
-              <img src={ReduxLogo} alt="react-logo" height="150" />
-            </Rotate>
+            <img
+              src="https://codemotion.ninja/wp-content/uploads/2018/09/Using-Redux-saga-with-React.jpg"
+              alt=""
+            />
           </div>
           <div>
             <Link to={routeTemplates.movies.root}>

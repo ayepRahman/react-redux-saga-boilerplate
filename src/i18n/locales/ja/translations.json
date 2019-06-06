@@ -1,5 +1,10 @@
 {
-  "title": "React Redux Sagaボイラープレート",
-  "desc": "いくつかの説明",
+  "key": "テキスト",
+  "title": "ヘッダ",
+  "navbar-link-home": "ホーム",
+  "navbar-link-movies": "映画",
+  "navbar-link-dropdown": "言語",
+  "home-title": "React Redux Sagaボイラープレート",
+  "home-desc": "パフォーマンスとベストプラクティスに重点を置いたスケーラブルな開発のための軽量のreact redux sagaの定型文。このプロジェクトはカスタムuseReducerとuseSagaのようなReact Hook機能をコード分割のために使います",
   "link": "その場でuseReducerとuseSagaのコード分割を見るために、Movies Example、Open up Redux Toolを見てください。"
 }

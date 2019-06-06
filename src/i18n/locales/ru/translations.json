@@ -1,5 +1,10 @@
 {
-  "title": "React Redux Saga Boilerplate",
-  "desc": "Некоторое описание",
+  "key": "текст",
+  "title": "заголовок",
+  "navbar-link-home": "Главная",
+  "navbar-link-movies": "Фильмы",
+  "navbar-link-dropdown": "язык",
+  "home-title": "React Redux Saga Boilerplate",
+  "home-desc": "Облегченный шаблон Sagate Reagate Saga для масштабируемой разработки, ориентированной на производительность и лучшие практики. В этом проекте используются функциональные возможности React Hook, такие как пользовательский useReducer и useSaga для разделения кода.",
   "link": "См. Пример фильма, Откройте инструмент Redux, чтобы увидеть разделение кода useReducer и useSaga на лету."
 }

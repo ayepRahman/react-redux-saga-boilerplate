@@ -5,7 +5,13 @@ import { initialState } from './reducer';
  * Direct selector to the header state domain
  */
 
-const makeSelectHeaderState = state => (state && state.header) || initialState;
+const selectHeaderStateDomain = state => state.header || initialState;
+
+const makeSelectHeaderState = () =>
+  createSelector(
+    selectHeaderStateDomain,
+    subState => subState,
+  );
 
 /**
  * Other specific selectors
