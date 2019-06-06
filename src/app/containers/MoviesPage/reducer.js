@@ -14,11 +14,9 @@ import { GET_MOVIES_SUCCESS, GET_MOVIES_START, GET_MOVIES_ERROR } from './consta
 export const initialState = {
   loading: false,
   error: false,
-  data: false,
-  meta: {
-    queryString: '',
+  data: {
+    total_pages: null,
     page: 1,
-    sort: false,
   },
 };
 

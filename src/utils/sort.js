@@ -12,10 +12,10 @@ export function parseSortParameterURLValue(value = '') {
   return undefined;
 }
 
-export function generateSortParameterURLValue({ field = '', order = sortOrders.ascending } = {}) {
-  if (field && field.length > 0) {
-    if (order === sortOrders.descending) return `-${field}`;
-    else return field;
+export function generateSortParameterURLValue({ name = '', order = sortOrders.ascending }) {
+  if (name && name.length > 0) {
+    if (order === sortOrders.descending) return `-${name}`;
+    else return name;
   }
 
   return '';

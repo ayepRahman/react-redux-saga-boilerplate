@@ -22,9 +22,10 @@ import { GET_MOVIES_START, GET_MOVIES_SUCCESS, GET_MOVIES_ERROR } from './consta
  *
  * @return {object} An action object with a type of GET_MOVIES
  */
-export function getMoviesStart() {
+export function getMoviesStart({ routeParams }) {
   return {
     type: GET_MOVIES_START,
+    routeParams,
   };
 }
 

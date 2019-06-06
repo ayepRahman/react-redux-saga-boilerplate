@@ -7,8 +7,11 @@ import { withRouter } from 'react-router-dom';
 
 import { Pagination as RBPagination } from 'react-bootstrap';
 
+import { makeSelectRouteParams } from './selectors';
+
 const Pagination = props => {
   const { routeParams } = props;
+  console.log(routeParams);
 
   const onPageChange = pageNumber => {
     const params = new URLSearchParams(props.location.search);
@@ -50,29 +53,9 @@ const Pagination = props => {
 Pagination.propTypes = {};
 
 const mapStateToProps = (state, props) => {
-  const query = new URLSearchParams(props.location.search);
-  const currentPage = Number(query.get('page')) || 1;
-  const totalPage = 1000;
-  const prevPage = currentPage > 1 ? currentPage - 1 : currentPage;
-  const nextPage = currentPage < totalPage ? currentPage + 1 : totalPage;
-  const isFirstPage = currentPage === 1;
-  const isLastPage = currentPage === totalPage;
-
-  const routeParams = {
-    currentPage,
-    prevPage,
-    nextPage,
-    totalPage,
-    isFirstPage,
-    isLastPage,
-  };
-
-  const structuredSelector = createStructuredSelector({});
-
-  return {
-    routeParams,
-    structuredSelector,
-  };
+  return createStructuredSelector({
+    routeParams: makeSelectRouteParams(props),
+  });
 };
 
 const withConnect = connect(

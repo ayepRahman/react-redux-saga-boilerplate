@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -26,9 +26,27 @@ const MoviesPage = props => {
   // @dev useInjectSaga before other react hooks function
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
+
   useEffect(() => {
-    getMoviesStart();
+    const routeParams = getRouteParams();
+    getMoviesStart({ routeParams });
   }, []);
+
+  useEffect(() => {
+    const routeParams = getRouteParams();
+    getMoviesStart({ routeParams });
+  }, [props.location.search]);
+
+  const getRouteParams = () => {
+    const query = new URLSearchParams(props.location.search);
+    const routeParams = {
+      currentPage: Number(query.get('page')) || 1,
+      language: query.get('lng'),
+      sort: query.get('sort'),
+    };
+
+    return routeParams;
+  };
 
   return (
     <Container className="pt-5">
@@ -67,8 +85,8 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getMoviesStart: () => {
-      dispatch(getMoviesStart());
+    getMoviesStart: ({ routeParams }) => {
+      dispatch(getMoviesStart({ routeParams }));
     },
   };
 };
