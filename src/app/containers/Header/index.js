@@ -19,6 +19,8 @@ import { makeSelectHeaderState } from './selectors';
 import reducer from './reducer';
 import routeTemplates from 'utils/routeTemplates';
 
+import { setLanguage } from './actions';
+
 const languagesOptions = [
   { code: 'en', text: 'English' },
   { code: 'de', text: 'German' },
@@ -28,15 +30,16 @@ const languagesOptions = [
 ];
 
 export function Header(props) {
-  console.log(props);
-  const { history } = props;
-  // @dev args for t('key', 'text')
+  const { history, setLanguage } = props;
   const { t, i18n } = useTranslation();
-  // @dev useInjectReducer should always be after hooks function
   useInjectReducer({ key: 'header', reducer });
 
-  const handleLanguage = code => {
-    i18n.changeLanguage(code);
+  const handleLanguage = language => {
+    const searchParams = new URLSearchParams(props.location.search);
+    searchParams.set('lng', language);
+    props.history.push(`${props.location.pathname}?${searchParams}`);
+    setLanguage(language);
+    i18n.changeLanguage(language);
   };
 
   return (
@@ -60,7 +63,7 @@ export function Header(props) {
               id="basic-nav-dropdown"
             >
               {languagesOptions.map(lng => (
-                <NavDropdown.Item onClick={() => handleLanguage(lng.code)}>
+                <NavDropdown.Item key={lng.code} onClick={() => handleLanguage(lng.code)}>
                   {t(`navbar-link-${lng.code}`, `${lng.text}`)}
                 </NavDropdown.Item>
               ))}
@@ -73,7 +76,7 @@ export function Header(props) {
 }
 
 Header.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  setLanguage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => {
@@ -84,7 +87,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    dispatch,
+    setLanguage: () => dispatch(setLanguage()),
   };
 };
 

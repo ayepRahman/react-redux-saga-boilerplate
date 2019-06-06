@@ -82,12 +82,16 @@ export const {{ properCase name }} = (props) => {
 
 {{#if wantActionsAndReducer}}
 const mapStateToProps = (state,props) => {
-  return createStructuredSelector({
+  // Selecting state from store
+  const structuredSelector = createStructuredSelector({
     {{ camelCase name }}: makeSelect{{properCase name}}State(),
     loading: makeSelectLoading(),
     error: makeSelectError()
-});
+  })
 
+  return {
+    structuredSelector
+  }
 } 
 {{/if}}
 

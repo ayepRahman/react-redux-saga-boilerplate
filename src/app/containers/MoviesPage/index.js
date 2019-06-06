@@ -15,6 +15,7 @@ import { getMoviesStart } from './actions';
 import { makeSelectLoading, makeSelectError, makeSelectMovies } from './selectors';
 
 import Table from './Table';
+import Pagination from './Pagination';
 
 const key = 'movies';
 
@@ -36,15 +37,16 @@ const MoviesPage = props => {
           <h1>Movies</h1>
         </Col>
       </Row>
-      <Row>
+      <Row className="justify-content-center text-center">
         {loading && (
           <Col className="text-center" xs={12}>
             <Spinner animation="grow" variant="dark" />
           </Col>
         )}
         {error && !!error && <Alert variant="danger">{error}</Alert>}
+        {hasMovies && <Pagination />}
         {hasMovies && <Table movies={movies} />}
-        {/* {hasMovies && <Pagination movies={movies} />} */}
+        {hasMovies && <Pagination />}
       </Row>
     </Container>
   );

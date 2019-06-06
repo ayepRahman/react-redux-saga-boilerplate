@@ -4,24 +4,11 @@
  *
  */
 
-import { DEFAULT_ACTION_START, DEFAULT_ACTION_SUCCESS, DEFAULT_ACTION_ERROR } from './constants';
+import { SET_LANGUAGE } from './constants';
 
-export function defaultActionStart() {
+export function setLanguage(language) {
   return {
-    type: DEFAULT_ACTION_START,
-  };
-}
-
-export function defaultActionSuccess(response) {
-  return {
-    type: DEFAULT_ACTION_SUCCESS,
-    response,
-  };
-}
-
-export function defaultActionError(error) {
-  return {
-    type: DEFAULT_ACTION_ERROR,
-    error,
+    type: SET_LANGUAGE,
+    language,
   };
 }
