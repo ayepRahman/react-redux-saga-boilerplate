@@ -1,6 +1,6 @@
 # react-redux-saga-boilerplate
 
-A lightweight react redux saga boilerplate for a scalable developement that focus on performance and best practices.
+A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices.
 
 ## Quick Start
 
@@ -56,8 +56,8 @@ This project bootstrap using Create React App. Check the styling guide below.
 1. Styled Components (recommended!)
 
 Visual primitives for the component age.
-Use the best bits of ES6 and CSS to style your apps without stress
-By default, code generator give you an option to use styled-components
+Use the best bits of ES6 and CSS to style your apps without stress.
+Included in code generator, give you an option to use styled-components.
 
 2. SASS
 
@@ -84,7 +84,17 @@ This will allow you to do imports like
 
 ### Running extract messages and auto translate.
 
-This script allow extracting messages from i18next translation function `t('key','value')` ,auto transalte using google cloud translation and add to `src/i18n/locales/` directories.
+This script allow extracting messages from i18next translation function `t('key','value')` , auto translate using google cloud translation and add to `src/i18n/locales/` directories.
+
+#### Requirement
+
+To use this tool with Google Translate, you need to obtain valid credentials from Google. Here the [link](https://cloud.google.com/translate/docs/quickstarts) to the quickstart guide. Once you have downloaded JSON key, You can specify the location of your downloaded JSON key file using the -c or --config option.
+
+##### example
+
+`"autotranslate": "json-autotranslate --input ./src/i18n/locales --service google-translate -d --config ./src/config/google/key-google.json"`
+
+#### To extract
 
 ```
 \$ npm run extract-messages
