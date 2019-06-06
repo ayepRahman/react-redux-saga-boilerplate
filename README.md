@@ -28,7 +28,7 @@ $ yarn start
 
 ## Flow Chart
 
-![alt text]('./src/resources/images/rrs-flow.jpeg')
+![alt text](https://cdn-images-1.medium.com/max/800/1*y-qgopNVlYcVrXgM84iPfA.jpeg)
 
 ## Features
 
