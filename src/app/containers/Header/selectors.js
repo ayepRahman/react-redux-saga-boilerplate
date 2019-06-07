@@ -13,8 +13,10 @@ const makeSelectHeaderState = () =>
     subState => subState,
   );
 
-/**
- * Other specific selectors
- */
+const makeSelectLanguage = () =>
+  createSelector(
+    selectHeaderStateDomain,
+    state => state.language,
+  );
 
-export { makeSelectHeaderState };
+export { makeSelectHeaderState, makeSelectLanguage };

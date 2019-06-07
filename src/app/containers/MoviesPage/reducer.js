@@ -8,7 +8,14 @@
  */
 
 import produce from 'immer';
-import { GET_MOVIES_SUCCESS, GET_MOVIES_START, GET_MOVIES_ERROR } from './constants';
+import {
+  GET_MOVIES_SUCCESS,
+  GET_MOVIES_START,
+  GET_MOVIES_ERROR,
+  SET_CURRENT_PAGE_PARAM,
+  SET_SORT_PARAM,
+  SET_LANGUAGE_PARAM,
+} from './constants';
 
 // The initial state of the App
 export const initialState = {
@@ -17,6 +24,8 @@ export const initialState = {
   data: {
     total_pages: null,
     page: 1,
+    sort: 'popularity.desc',
+    language: 'en',
   },
 };
 
@@ -37,6 +46,18 @@ const moviesReducer = (state = initialState, action) => {
       case GET_MOVIES_ERROR:
         draft.error = action.error;
         draft.loading = false;
+        break;
+      case SET_CURRENT_PAGE_PARAM:
+        draft.data.page = action.page;
+
+        break;
+      case SET_SORT_PARAM:
+        draft.data.sort = action.sort;
+
+        break;
+      case SET_LANGUAGE_PARAM:
+        draft.data.language = action.language;
+
         break;
     }
   });

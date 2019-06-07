@@ -11,11 +11,19 @@ export const sortOrders = {
   descending: 'desc',
 };
 
-const SortableTableHeader = ({ key, name, order, onChange, children }) => {
+/**
+ *
+ * @param {key} - key
+ * @param {name} - the name of the table header
+ * @param {field} - a parse string that is return from the parseUrl
+ * @param {order} - asc || desc
+ * @param {onChange} - a function that return name and order
+ * @param {children} - react children
+ */
+const SortableTableHeader = ({ key, name, field, order, onChange, children }) => {
   const toggleOrder = (sortOrder, defaultOrder = sortOrders.ascending) => {
     if (sortOrder === sortOrders.ascending) return sortOrders.descending;
     if (sortOrder === sortOrders.descending) return sortOrders.ascending;
-
     return defaultOrder;
   };
 
@@ -30,16 +38,19 @@ const SortableTableHeader = ({ key, name, order, onChange, children }) => {
         });
       }}
     >
-      {children}{' '}
-      <i
-        className={`fas ${
-          !order
-            ? 'fa-arrows-alt-v'
-            : order === sortOrders.ascending
-            ? 'fa-long-arrow-alt-up'
-            : 'fa-long-arrow-alt-down'
-        }`}
-      />
+      <div className="d-flex">
+        {children}
+        <div className="pl-2">
+          {field !== name && <i className={`fas fa-arrows-alt-v text-muted`} />}
+          {field === name && (
+            <i
+              className={`fas ${
+                order === sortOrders.ascending ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'
+              }`}
+            />
+          )}
+        </div>
+      </div>
     </TableHeader>
   );
 };

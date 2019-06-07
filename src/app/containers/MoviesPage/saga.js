@@ -1,19 +1,25 @@
-import {
-  call,
-  put,
-  //  select,
-  takeLatest,
-} from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import { GET_MOVIES_START } from 'app/containers/MoviesPage/constants';
 import { getMoviesSuccess, getMoviesError } from 'app/containers/MoviesPage/actions';
+import {
+  makeSelectCurrentPageParam,
+  makeSelectSortParam,
+} from 'app/containers/MoviesPage/selectors';
+import { makeSelectLanguage } from 'app/containers/Header/selectors';
 
 import request from 'utils/request';
 
 const API_KEY = process.env.REACT_APP_MOVIE_API_KEY || '6878e823788381b9f6763114fff23334';
 
-export function* getMovies({ routeParams }) {
-  const { language, sort, currentPage } = routeParams;
-  const requestURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&language=${language}&sort_by=${sort}&page=${currentPage}`;
+export function* getMovies() {
+  // const { language, sort, currentPage } = routeParams;
+
+  const currentPage = yield select(makeSelectCurrentPageParam());
+  const language = yield select(makeSelectLanguage());
+  const sort = yield select(makeSelectSortParam());
+
+  const requestURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=true&language=${language}&sort_by=${sort}&page=${currentPage}`;
 
   try {
     const response = yield call(request, requestURL);

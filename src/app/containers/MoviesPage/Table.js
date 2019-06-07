@@ -2,20 +2,18 @@
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
 
 import { Table as RBTable } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { withRouter } from 'react-router-dom';
+import { makeSelectLoading, makeSelectSortParam } from './selectors';
 
-import { generateSortParameterURLValue, parseSortParameterURLValue } from 'utils/sort';
+import { parseSortParameterURLValue } from 'utils/sort';
 
 import SortableTableHeader from 'app/components/SortableTableHeader';
-
-// import React from 'react';
-
-// import styles from './index.module.scss';
-// import classnames from 'classnames';
-// import { sortOrders, toggleOrder } from 'utils/sort';
 
 // export default function({ name, field, order, label, onChange, ...rest }) {
 //   return (
@@ -44,36 +42,30 @@ import SortableTableHeader from 'app/components/SortableTableHeader';
 //   );
 // }
 
-const Table = ({ movies, location, history }) => {
-  const [sort, setSort] = useState();
+const Table = ({ movies, location, history, sort }) => {
+  const [parseSortObj, setParseSortObj] = useState();
   const { t } = useTranslation();
 
-  console.log({ sort });
+  console.log({ parseSortObj });
 
   useEffect(() => {
-    const sortParam = getSort();
-    setSort(sortParam);
+    const params = new URLSearchParams(location.search);
+    const paramToSort = sort || params.get('sort');
+    const parseSortObj = parseSortParameterURLValue(paramToSort);
+    setParseSortObj(parseSortObj);
   }, []);
 
   useEffect(() => {
-    console.log('Trigger');
-    const sortParam = getSort();
-    setSort(sortParam);
-  }, [location.search]);
-
-  const getSort = () => {
-    const query = new URLSearchParams(location.search);
-    const sort = query.get('sort');
-
-    return sort;
-  };
+    const params = new URLSearchParams(location.search);
+    const paramToSort = sort || params.get('sort');
+    const parseSortObj = parseSortParameterURLValue(paramToSort);
+    setParseSortObj(parseSortObj);
+  }, [sort]);
 
   const handleSort = ({ name, order }) => {
-    console.log(name, order);
     const params = new URLSearchParams(location.search);
     params.set('sort', `${name}.${order}`);
     history.push(`${location.pathname}?${params}`);
-    setSort(order);
   };
 
   const renderRow = movie => {
@@ -97,19 +89,23 @@ const Table = ({ movies, location, history }) => {
     <RBTable responsive>
       <thead>
         <tr>
-          <th name="image" order={sort} onChange={handleSort}>
-            {t('table-header-image', 'Image')}
-          </th>
-          <th name="title" order={sort} onChange={handleSort}>
-            {t('table-header-title', 'Title')}
-          </th>
-          <th name="overview" order={sort} onChange={handleSort}>
-            {t('table-header-overview', 'Overview')}
-          </th>
-          <SortableTableHeader name="popularity" order={sort} onChange={handleSort}>
+          <th name="image">{t('table-header-image', 'Image')}</th>
+          <th name="title">{t('table-header-title', 'Title')}</th>
+          <th name="overview">{t('table-header-overview', 'Overview')}</th>
+          <SortableTableHeader
+            name="popularity"
+            field={parseSortObj && parseSortObj.field}
+            order={parseSortObj && parseSortObj.order}
+            onChange={handleSort}
+          >
             {t('table-header-popularity', 'Popularity')}
           </SortableTableHeader>
-          <SortableTableHeader name="release_date" order={sort} onChange={handleSort}>
+          <SortableTableHeader
+            name="release_date"
+            field={parseSortObj && parseSortObj.field}
+            order={parseSortObj && parseSortObj.order}
+            onChange={handleSort}
+          >
             {t('table-header-release-date', 'Date')}
           </SortableTableHeader>
         </tr>
@@ -120,7 +116,18 @@ const Table = ({ movies, location, history }) => {
 };
 
 Table.propTypes = {
-  movies: PropTypes.array,
+  sort: PropTypes.string,
 };
 
-export default withRouter(Table);
+const mapStateToProps = (state, props) => {
+  return createStructuredSelector({
+    sort: makeSelectSortParam(),
+  });
+};
+
+const withConnect = connect(mapStateToProps);
+
+export default compose(
+  withRouter,
+  withConnect,
+)(Table);

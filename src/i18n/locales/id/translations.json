@@ -1,11 +1,12 @@
 {
-  "key": "teks",
   "navbar-link-home": "Rumah",
   "navbar-link-movies": "Film",
   "navbar-link-dropdown": "Bahasa",
   "home-title": "Bereaksi Redux Saga Boilerplate",
   "home-desc": "Pelat reduks saga reaksi ringan untuk pengembangan yang dapat diskalakan yang berfokus pada kinerja dan praktik terbaik. Proyek ini menggunakan fungsi React Hook seperti custom useReducer dan useSaga untuk pemecahan kode",
   "link": "Lihat Contoh Film, Buka Alat Redux untuk melihat pemisahan kode useReducer dan useSaga on the fly.",
+  "movies-page-title": "Film",
+  "movies-page-desc": "Anda dapat memfilter menurut bahasa, jenis tabel, dan pagination",
   "table-header-image": "Gambar",
   "table-header-title": "Judul",
   "table-header-overview": "Ikhtisar",

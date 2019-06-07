@@ -7,10 +7,10 @@ import { withRouter } from 'react-router-dom';
 
 import { Pagination as RBPagination } from 'react-bootstrap';
 
-import { makeSelectRouteParams } from './selectors';
+import { makeSelectPaginationParams } from './selectors';
 
 const Pagination = props => {
-  const { routeParams } = props;
+  const { paginationParams } = props;
 
   const onPageChange = pageNumber => {
     const params = new URLSearchParams(props.location.search);
@@ -22,28 +22,28 @@ const Pagination = props => {
     <div className="py-3">
       <RBPagination>
         <RBPagination.First onClick={() => onPageChange(1)} />
-        <RBPagination.Prev onClick={() => onPageChange(routeParams.prevPage)} />
+        <RBPagination.Prev onClick={() => onPageChange(paginationParams.prevPage)} />
         <RBPagination.Item onClick={() => onPageChange(1)}>{1}</RBPagination.Item>
         <RBPagination.Ellipsis disabled />
 
-        {!routeParams.isFirstPage && (
-          <RBPagination.Item onClick={() => onPageChange(routeParams.prevPage)}>
-            {routeParams.prevPage}
+        {!paginationParams.isFirstPage && (
+          <RBPagination.Item onClick={() => onPageChange(paginationParams.prevPage)}>
+            {paginationParams.prevPage}
           </RBPagination.Item>
         )}
-        <RBPagination.Item active>{routeParams.currentPage}</RBPagination.Item>
-        {!routeParams.isLastPage && (
-          <RBPagination.Item onClick={() => onPageChange(routeParams.nextPage)}>
-            {routeParams.nextPage}
+        <RBPagination.Item active>{paginationParams.currentPage}</RBPagination.Item>
+        {!paginationParams.isLastPage && (
+          <RBPagination.Item onClick={() => onPageChange(paginationParams.nextPage)}>
+            {paginationParams.nextPage}
           </RBPagination.Item>
         )}
 
         <RBPagination.Ellipsis disabled />
-        <RBPagination.Item onClick={() => onPageChange(routeParams.totalPage)}>
-          {routeParams.totalPage}
+        <RBPagination.Item onClick={() => onPageChange(paginationParams.totalPage)}>
+          {paginationParams.totalPage}
         </RBPagination.Item>
-        <RBPagination.Next onClick={() => onPageChange(routeParams.nextPage)} />
-        <RBPagination.Last onClick={() => onPageChange(routeParams.totalPage)} />
+        <RBPagination.Next onClick={() => onPageChange(paginationParams.nextPage)} />
+        <RBPagination.Last onClick={() => onPageChange(paginationParams.totalPage)} />
       </RBPagination>
     </div>
   );
@@ -53,7 +53,7 @@ Pagination.propTypes = {};
 
 const mapStateToProps = (state, props) => {
   return createStructuredSelector({
-    routeParams: makeSelectRouteParams(props),
+    paginationParams: makeSelectPaginationParams(props),
   });
 };
 

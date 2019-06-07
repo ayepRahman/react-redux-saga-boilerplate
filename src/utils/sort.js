@@ -5,8 +5,17 @@ export const sortOrders = {
 
 export function parseSortParameterURLValue(value = '') {
   if (value && value.length > 0) {
-    if (value[0] === '-') return { field: value.substring(1), order: sortOrders.descending };
-    else return { field: value, order: sortOrders.ascending };
+    const splitValue = value.split('.');
+    const field = splitValue[0];
+    const order = splitValue[1];
+    console.log({ splitValue });
+
+    if (splitValue && splitValue.length === 2) {
+      return {
+        field,
+        order,
+      };
+    }
   }
 
   return undefined;

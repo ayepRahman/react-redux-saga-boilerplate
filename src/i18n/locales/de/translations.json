@@ -1,11 +1,12 @@
 {
-  "key": "Text",
   "navbar-link-home": "Zuhause",
   "navbar-link-movies": "Filme",
   "navbar-link-dropdown": "Sprache",
   "home-title": "Redux Saga Boilerplate reagieren",
   "home-desc": "Ein leichtes React Redux Saga Boilerplate für eine skalierbare Entwicklung, die sich auf Leistung und Best Practices konzentriert. Dieses Projekt verwendet die React Hook-Funktionalität wie einen benutzerdefinierten useReducer und useSaga für die Code-Aufteilung",
   "link": "Beispiel: Öffnen Sie das Redux-Tool, um die Code-Aufteilung von useReducer und useSaga im laufenden Betrieb zu sehen.",
+  "movies-page-title": "Filme",
+  "movies-page-desc": "Sie können nach Sprache, Tabellensortierung und Paginierung filtern",
   "table-header-image": "Bild",
   "table-header-title": "Titel",
   "table-header-overview": "Überblick",

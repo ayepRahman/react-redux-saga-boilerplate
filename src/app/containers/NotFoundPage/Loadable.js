@@ -4,7 +4,7 @@ import LoadingPage from 'app/components/Loading';
 
 export default Loadable({
   loader: () => import('./index'),
-  loading: () => <LoadingPage fullHeight />,
+  loading: () => <LoadingPage loadable />,
   delay: 500, // Avoiding Flash Of Loading Component
   timeout: 10000, // Timing out when the loader is taking too long
 });

@@ -32,21 +32,37 @@ const makeSelectError = () =>
 const makeSelectMovies = () =>
   createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.data && moviesState.data.results, // movies array
+    moviesState => moviesState.data && moviesState.data.results,
   );
+
 const makeSelectTotalPage = () =>
   createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.data && moviesState.data.totalPage, // movies array
+    moviesState => moviesState.data && moviesState.data.totalPage,
   );
-const makeSelectCurrentPage = () => {
+
+const makeSelectCurrentPageParam = () => {
   return createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.data && moviesState.data.page, // movies array
+    moviesState => moviesState.data && moviesState.data.page,
   );
 };
 
-const makeSelectRouteParams = props => {
+const makeSelectSortParam = () => {
+  return createSelector(
+    selectMoviesStateDomain,
+    moviesState => moviesState.data && moviesState.data.sort,
+  );
+};
+
+const makeSelectLanguageParam = () => {
+  return createSelector(
+    selectMoviesStateDomain,
+    moviesState => moviesState.data && moviesState.data.language,
+  );
+};
+
+const makeSelectPaginationParams = props => {
   return createSelector(
     selectMoviesStateDomain,
     moviesState => {
@@ -75,6 +91,8 @@ export {
   makeSelectError,
   makeSelectMovies,
   makeSelectTotalPage,
-  makeSelectCurrentPage,
-  makeSelectRouteParams,
+  makeSelectCurrentPageParam,
+  makeSelectSortParam,
+  makeSelectLanguageParam,
+  makeSelectPaginationParams,
 };

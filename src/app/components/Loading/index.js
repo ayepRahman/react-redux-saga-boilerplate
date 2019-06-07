@@ -5,33 +5,48 @@ import { Spinner, Button } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const LoadingWrapper = styled.div`
-  position: relative;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9998;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
 `;
 
 const LoadingContent = styled.div`
+  height: 100px;
+  width: 100px;
   position: absolute;
   left: 50%;
+  margin-left: -50px;
   top: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: -50px;
 `;
 
-const Loading = ({ fullHeight, error, retry, timedOut, pastDelay }) => {
-  const renderPageLoader = () => (
+const Loading = ({ loadable, extend, error, retry, timedOut, pastDelay }) => {
+  const renderExtendLoader = () => (
     <LoadingWrapper>
       <LoadingContent>
-        {error && (
+        {loadable && (
           <div>
-            Error! <Button onClick={retry}>Retry</Button>
+            {error && (
+              <div>
+                Error! <Button onClick={retry}>Retry</Button>
+              </div>
+            )}
+            {timedOut && (
+              <div>
+                Taking a long time... <Button onClick={retry}>Retry</Button>
+              </div>
+            )}
+            {pastDelay && <Spinner animation="border" variant="blue" />}
           </div>
         )}
-        {timedOut && (
-          <div>
-            Taking a long time... <Button onClick={retry}>Retry</Button>
-          </div>
-        )}
-        {pastDelay && <Spinner animation="border" variant="dark" />}
+        {extend && <Spinner animation="border" variant="blue" />}
       </LoadingContent>
     </LoadingWrapper>
   );
@@ -42,11 +57,12 @@ const Loading = ({ fullHeight, error, retry, timedOut, pastDelay }) => {
     </div>
   );
 
-  return <>{fullHeight ? renderPageLoader() : renderLoader()}</>;
+  return <>{extend || loadable ? renderExtendLoader() : renderLoader()}</>;
 };
 
 Loading.propTypes = {
-  fullHeight: PropTypes.bool, // @dev decide Loading page display
+  extend: PropTypes.bool, // Handle extend loader
+  loadable: PropTypes.bool, // Handle react-loadable props
 };
 
 export default Loading;
