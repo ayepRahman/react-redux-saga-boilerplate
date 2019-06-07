@@ -34,6 +34,16 @@ $ npm run start
 $ yarn start
 ```
 
+- to run tests
+
+```
+$ npm run test
+
+#or
+
+$ yarn test
+```
+
 ## Flow Chart
 
 ![flow chart](https://cdn-images-1.medium.com/max/800/1*y-qgopNVlYcVrXgM84iPfA.jpeg)
@@ -77,8 +87,10 @@ To use Sass, first install node-sass:
 
 ```
 $ npm install node-sass --save
-$ # or
-\$ yarn add node-sass
+
+#or
+
+$ yarn add node-sass
 ```
 
 Now you can rename src/App.css to src/App.scss and update src/App.js to import src/App.scss. This file and any other file will be automatically compiled if imported with the extension .scss or .sass.
@@ -109,11 +121,11 @@ To use this tool with Google Translate, you need to obtain valid credentials fro
 #### To extract
 
 ```
-\$ npm run extract-messages
+$ npm run extract-messages
 
 #or
 
-\$ yarn extract-messages
+$ yarn extract-messages
 
 ```
 
