@@ -19,4 +19,4 @@ const makeSelectLanguage = () =>
     state => state.language,
   );
 
-export { makeSelectHeaderState, makeSelectLanguage };
+export { selectHeaderStateDomain, makeSelectHeaderState, makeSelectLanguage };

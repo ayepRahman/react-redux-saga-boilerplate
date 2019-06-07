@@ -1,13 +1,13 @@
-import { defaultAction } from '../actions';
-import { DEFAULT_ACTION } from '../constants';
+import { setLanguage } from '../actions';
+import { SET_LANGUAGE } from '../constants';
 
 describe('Header actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+  describe('setLanguage action', () => {
+    it('has a type of SET_LANGUAGE', () => {
       const expected = {
-        type: DEFAULT_ACTION,
+        type: SET_LANGUAGE,
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(setLanguage()).toEqual(expected);
     });
   });
 });

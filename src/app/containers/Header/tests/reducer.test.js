@@ -1,14 +1,13 @@
-
-// import produce from 'immer';
+import produce from 'immer';
 import headerReducer from '../reducer';
-// import { someAction } from '../actions';
+import { setLanguage } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('headerReducer', () => {
   let state;
   beforeEach(() => {
     state = {
-      // default state params here
+      language: 'en',
     };
   });
 
@@ -17,17 +16,11 @@ describe('headerReducer', () => {
     expect(headerReducer(undefined, {})).toEqual(expectedResult);
   });
 
-  /**
-   * Example state change comparison
-   *
-   * it('should handle the someAction action correctly', () => {
-   *   const expectedResult = produce(state, draft => {
-   *     draft.loading = true;
-   *     draft.error = false;
-   *     draft.userData.nested = false;
-   *   });
-   *
-   *   expect(appReducer(state, someAction())).toEqual(expectedResult);
-   * });
-   */
+  it('should handle the setLanguage() action correctly', () => {
+    const expectedResult = produce(state, draft => {
+      draft.language = 'en';
+    });
+
+    expect(headerReducer(state, setLanguage('en'))).toEqual(expectedResult);
+  });
 });
