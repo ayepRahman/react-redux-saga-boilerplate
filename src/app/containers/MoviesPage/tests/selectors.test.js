@@ -1,13 +1,13 @@
 import {
   selectMoviesStateDomain,
-  makeSelectLoading,
-  makeSelectError,
   makeSelectMovies,
-  makeSelectTotalPage,
-  makeSelectCurrentPageParam,
-  makeSelectSortParam,
-  makeSelectLanguageParam,
-  makeSelectPaginationParams,
+  // makeSelectLoading,
+  // makeSelectError,
+  // makeSelectTotalPage,
+  // makeSelectCurrentPageParam,
+  // makeSelectSortParam,
+  // makeSelectLanguageParam,
+  // makeSelectPaginationParams,
 } from '../selectors';
 
 describe('selectMoviesStateDomain', () => {
