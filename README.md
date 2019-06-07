@@ -143,7 +143,9 @@ Options:
 
 ## Todolists
 
-- Navbar with dropdown language selector
+- testing
+- lint staged
+- prettify pre-commit
 - generator - routes
 - README.md features quick start and faqs
 - hot reload for extract and auto transalte text
