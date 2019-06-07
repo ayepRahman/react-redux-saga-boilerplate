@@ -4,6 +4,10 @@
 
 A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices. This project uses React Hook functionality like a custom useReducer and useSaga for code-splitting.
 
+## Demo
+
+![](./resources/images/rrsb.gif)
+
 ## Quick Start
 
 - git clone project
