@@ -49,7 +49,9 @@ const Pagination = props => {
   );
 };
 
-Pagination.propTypes = {};
+Pagination.propTypes = {
+  paginationParams: PropTypes.object,
+};
 
 const mapStateToProps = (state, props) => {
   return createStructuredSelector({
@@ -57,10 +59,7 @@ const mapStateToProps = (state, props) => {
   });
 };
 
-const withConnect = connect(
-  mapStateToProps,
-  // mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps);
 
 export default compose(
   withRouter,

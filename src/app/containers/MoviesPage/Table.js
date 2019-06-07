@@ -9,38 +9,11 @@ import { createStructuredSelector } from 'reselect';
 import { Table as RBTable } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { withRouter } from 'react-router-dom';
-import { makeSelectLoading, makeSelectSortParam } from './selectors';
+import { makeSelectSortParam } from './selectors';
 
 import { parseSortParameterURLValue } from 'utils/sort';
 
 import SortableTableHeader from 'app/components/SortableTableHeader';
-
-// export default function({ name, field, order, label, onChange, ...rest }) {
-//   return (
-//     <th {...rest}>
-//       <a
-//         className={classnames(styles.cursorPointer, 'font-weight-bold')}
-//         onClick={e => {
-//           e.preventDefault();
-//           onChange({
-//             field: name,
-//             order: field === name ? toggleOrder(order) : order || sortOrders.ascending,
-//           });
-//         }}
-//       >
-//         {label} {field !== name && <i className="fa fa-arrows-v text-muted" />}
-//         {order &&
-//           field === name && (
-//             <i
-//               className={`fa ${order === sortOrders.descending
-//                 ? 'fa-long-arrow-down'
-//                 : 'fa-long-arrow-up'}`}
-//             />
-//           )}
-//       </a>
-//     </th>
-//   );
-// }
 
 const Table = ({ movies, location, history, sort }) => {
   const [parseSortObj, setParseSortObj] = useState();
