@@ -86,6 +86,7 @@ const makeSelectPaginationParams = props => {
 };
 
 export {
+  selectMoviesStateDomain,
   makeSelectMoviesState,
   makeSelectLoading,
   makeSelectError,
