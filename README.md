@@ -6,7 +6,7 @@ A lightweight react redux saga boilerplate for a scalable development that focus
 
 ## Demo
 
-![](./resources/images/rrsb.gif)
+![](src/resources/images/rrsb.gif)
 
 ## Quick Start
 
