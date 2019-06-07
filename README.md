@@ -9,7 +9,7 @@ A lightweight react redux saga boilerplate for a scalable development that focus
 ![](src/resources/images/rrsb.gif)
 
 <p align="center">
-  <img width="460" height="300" src="http://www.fillmurray.com/460/300">
+  <img width="460" height="300" src="src/resources/images/rrsb.gif">
 </p>
 
 ## Quick Start
