@@ -147,7 +147,6 @@ Options:
 
 ## Todolists
 
-- testing
 - lint staged
 - prettify pre-commit
 - generator - routes
