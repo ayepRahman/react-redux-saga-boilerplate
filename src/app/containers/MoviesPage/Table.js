@@ -102,5 +102,5 @@ const withConnect = connect(mapStateToProps);
 
 export default compose(
   withRouter,
-  withConnect,
+  withConnect
 )(Table);

@@ -93,10 +93,10 @@ export const mapDispatchToProps = dispatch => {
 
 const withConnect = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 );
 
 export default compose(
   withRouter,
-  withConnect,
+  withConnect
 )(Header);

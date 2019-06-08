@@ -26,7 +26,7 @@ ReactDOM.render(
       <App />
     </ConnectedRouter>
   </Provider>,
-  MOUNT_NODE,
+  MOUNT_NODE
 );
 
 // TODO: migrating react-intl to react-i18next, will remove below code

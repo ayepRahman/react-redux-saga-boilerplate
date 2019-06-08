@@ -12,25 +12,25 @@ const makeSelectRouterState = state => state.router;
 const makeSelectCurrentUser = () =>
   createSelector(
     makeSelectGlobalState,
-    globalState => globalState.currentUser,
+    globalState => globalState.currentUser
   );
 
 const makeSelectLoading = () =>
   createSelector(
     makeSelectGlobalState,
-    globalState => globalState.loading,
+    globalState => globalState.loading
   );
 
 const makeSelectError = () =>
   createSelector(
     makeSelectGlobalState,
-    globalState => globalState.error,
+    globalState => globalState.error
   );
 
 const makeSelectRepos = () =>
   createSelector(
     makeSelectGlobalState,
-    globalState => globalState.userData.repositories,
+    globalState => globalState.userData.repositories
   );
 
 export {

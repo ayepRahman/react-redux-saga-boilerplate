@@ -10,13 +10,13 @@ const selectHeaderStateDomain = state => state.header || initialState;
 const makeSelectHeaderState = () =>
   createSelector(
     selectHeaderStateDomain,
-    subState => subState,
+    subState => subState
   );
 
 const makeSelectLanguage = () =>
   createSelector(
     selectHeaderStateDomain,
-    state => state.language,
+    state => state.language
   );
 
 export { selectHeaderStateDomain, makeSelectHeaderState, makeSelectLanguage };

@@ -23,7 +23,7 @@ const Home = props => {
           <p>
             {t(
               'home-desc',
-              'A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices. This project uses React Hook functionality like a custom useReducer and useSaga for code-splitting',
+              'A lightweight react redux saga boilerplate for a scalable development that focus on performance and best practices. This project uses React Hook functionality like a custom useReducer and useSaga for code-splitting'
             )}{' '}
           </p>
         </Col>
@@ -40,7 +40,7 @@ const Home = props => {
             <Link to={routeTemplates.movies.root}>
               {t(
                 'link',
-                'See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga on the fly.',
+                'See Movies Example, Open up Redux Tool to see code-splitting of useReducer and useSaga on the fly.'
               )}
             </Link>
           </div>
@@ -63,7 +63,7 @@ const mapStateToProps = (state, props) => {
 
 const withConnect = connect(
   mapStateToProps,
-  null,
+  null
 );
 
 export default compose(withConnect)(Home);

@@ -2,11 +2,11 @@ import produce from 'immer';
 import moviesReducer from '../reducer';
 import {
   getMoviesStart,
-  getMoviesSuccess,
-  getMoviesError,
-  setCurrentPageParam,
-  setSortParam,
-  setLanguageParam,
+  // getMoviesSuccess,
+  // getMoviesError,
+  // setCurrentPageParam,
+  // setSortParam,
+  // setLanguageParam,
 } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */

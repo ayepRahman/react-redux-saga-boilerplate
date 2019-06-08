@@ -14,51 +14,51 @@ const selectMoviesStateDomain = state => state.movies || initialState;
 const makeSelectMoviesState = () =>
   createSelector(
     selectMoviesStateDomain,
-    subState => subState,
+    subState => subState
   );
 
 const makeSelectLoading = () =>
   createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.loading,
+    moviesState => moviesState.loading
   );
 
 const makeSelectError = () =>
   createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.error,
+    moviesState => moviesState.error
   );
 
 const makeSelectMovies = () =>
   createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.data && moviesState.data.results,
+    moviesState => moviesState.data && moviesState.data.results
   );
 
 const makeSelectTotalPage = () =>
   createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.data && moviesState.data.totalPage,
+    moviesState => moviesState.data && moviesState.data.totalPage
   );
 
 const makeSelectCurrentPageParam = () => {
   return createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.data && moviesState.data.page,
+    moviesState => moviesState.data && moviesState.data.page
   );
 };
 
 const makeSelectSortParam = () => {
   return createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.data && moviesState.data.sort,
+    moviesState => moviesState.data && moviesState.data.sort
   );
 };
 
 const makeSelectLanguageParam = () => {
   return createSelector(
     selectMoviesStateDomain,
-    moviesState => moviesState.data && moviesState.data.language,
+    moviesState => moviesState.data && moviesState.data.language
   );
 };
 
@@ -81,7 +81,7 @@ const makeSelectPaginationParams = props => {
         isFirstPage,
         isLastPage,
       };
-    },
+    }
   );
 };
 

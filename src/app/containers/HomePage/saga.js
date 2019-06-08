@@ -9,7 +9,7 @@ import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 import request from 'utils/request';
 import { makeSelectUsername } from 'containers/HomePage/selectors';
 
-const API_KEY = process.env.REACT_APP_MOVIE_API_KEY || '6878e823788381b9f6763114fff23334';
+// const API_KEY = process.env.REACT_APP_MOVIE_API_KEY || '6878e823788381b9f6763114fff23334';
 
 /**
  * Github repos request/response handler
