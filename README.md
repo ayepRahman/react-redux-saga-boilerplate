@@ -12,8 +12,8 @@ A lightweight react redux saga boilerplate for a scalable development that focus
 
 ## Quick Start
 
-- git clone project
-  `git clone https://github.com/ayepRahman/react-redux-saga-boilerplate.git`
+- git clone project and then `cd <YOUR_PROJECT_NAME>`
+  `git clone --depth=1 https://github.com/ayepRahman/react-redux-saga-boilerplate.git <YOUR_PROJECT_NAME>`
 - install dependencies
 
 ```
@@ -130,7 +130,6 @@ $ npm run extract-messages
 #or
 
 $ yarn extract-messages
-
 ```
 
 #### Directory Structure
