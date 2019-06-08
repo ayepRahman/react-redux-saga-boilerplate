@@ -74,8 +74,7 @@
     "prettify": "prettier --write",
     "extract-messages": "NODE_ENV=development i18next-scanner --config ./src/config/i18n/index.js && yarn clean-locales && yarn autotranslate",
     "autotranslate": "json-autotranslate --input ./src/i18n/locales --service google-translate -d --config ./src/config/google/key-google.json",
-    "clean-locales": "node ./scripts/extract-and-destroy-locales.js",
-    "precommit": "lint-staged"
+    "clean-locales": "node ./scripts/extract-and-destroy-locales.js"
   },
   "jest": {
     "roots": [
@@ -99,6 +98,11 @@
     ],
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
   "eslintConfig": {
