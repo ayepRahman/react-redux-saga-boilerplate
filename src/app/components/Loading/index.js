@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Spinner, Button } from 'react-bootstrap';
-
 import styled from 'styled-components';
 
 const LoadingWrapper = styled.div`

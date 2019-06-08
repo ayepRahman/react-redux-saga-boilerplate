@@ -40,18 +40,23 @@
     "@testing-library/react": "^8.0.1",
     "babel-plugin-react-intl-auto": "^1.7.0",
     "chalk": "^2.4.2",
+    "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "extract-react-intl-messages": "^1.0.1",
+    "husky": "^2.4.0",
     "i18next-scanner": "^2.10.2",
     "json-autotranslate": "^1.3.2",
     "jsonfile": "^5.0.0",
     "lint-staged": "^8.2.0",
+    "prettier": "^1.18.2",
     "shelljs": "^0.8.3",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-recommended-scss": "^3.3.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.8.0",
+    "stylelint-scss": "^3.8.0",
     "translate-json-object": "^2.3.3"
   },
   "scripts": {
@@ -61,10 +66,10 @@
     "eject": "react-scripts eject",
     "generate": "plop --plopfile generators/index.js",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:css": "stylelint app/**/*.js",
-    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts",
-    "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts --fix",
     "lint:js": "npm run lint:eslint -- . ",
+    "lint:css": "stylelint ./src/app/**/*.js",
+    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern ./scripts",
+    "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern ./scripts --fix",
     "lint:staged": "lint-staged",
     "prettify": "prettier --write",
     "extract-messages": "NODE_ENV=development i18next-scanner --config ./src/config/i18n/index.js && yarn clean-locales && yarn autotranslate",
@@ -140,7 +145,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
   "stylelint": {
     "extends": [
       "stylelint-config-recommended-scss"
