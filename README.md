@@ -14,7 +14,7 @@ A lightweight react redux saga boilerplate for a scalable development that focus
 
 - Make sure that you have Node.js `v8^` and npm `v5^` installed.
 - git clone project and then `cd <YOUR_PROJECT_NAME>`
-  `git clone --depth=1 https://github.com/ayepRahman/react-redux-saga-boilerplate.git <YOUR_PROJECT_NAME>`
+- `git clone --depth=1 https://github.com/ayepRahman/react-redux-saga-boilerplate.git <YOUR_PROJECT_NAME>`
 - install dependencies.
 
 ```
