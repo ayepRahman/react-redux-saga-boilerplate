@@ -160,6 +160,10 @@ $ npm run generate
 $ yarn generate
 ```
 
+<p align="center">
+  <img width="600" src="src/resources/images/generator.gif">
+</p>
+
 #### Available options
 
 ```
