@@ -52,7 +52,7 @@ $ yarn test
 
 ### Quick scaffolding
 
-Create components, containers, routes, selectors and sagas right from the CLI!
+Create components, containers, actions, selectors, sagas and more right from the CLI!
 
 ### Component-centric splitting
 
@@ -104,6 +104,10 @@ This will allow you to do imports like
 @import '~nprogress/nprogress'; // importing a css file from the nprogress node module
 ```
 
+### Pre-Commit Linter
+
+Build in linter on git pre-commit using lint-staged, eslint and prettier.
+
 ## Available Scripts:
 
 ### Running extract messages and auto translate.
@@ -142,6 +146,20 @@ locales
 └── it
 ```
 
+### Code genarators
+
+Build using plop a little tool that saves you time and helps your team build new files with consistency e.g component, containers.
+
+#### To Run
+
+```
+$ npm run generate
+
+#or
+
+$ yarn generate
+```
+
 #### Available options
 
 ```
@@ -161,7 +179,5 @@ Options:
 
 ## Todolists
 
-- lint staged
-- prettify pre-commit
 - README.md features quick start and faqs
-- hot reload for extract and auto transalte text
+- hot reload for extract and auto translate text

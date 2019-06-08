@@ -69,14 +69,14 @@ module.exports = {
     ];
 
     // If the user wants i18n messages
-    if (data.wantMessages) {
-      actions.push({
-        type: 'add',
-        path: '../src/app/components/{{properCase name}}/messages.js',
-        templateFile: './component/messages.js.hbs',
-        abortOnFail: true,
-      });
-    }
+    // if (data.wantMessages) {
+    //   actions.push({
+    //     type: 'add',
+    //     path: '../src/app/components/{{properCase name}}/messages.js',
+    //     templateFile: './component/messages.js.hbs',
+    //     abortOnFail: true,
+    //   });
+    // }
 
     // If the user wants Loadable.js to load the component asynchronously
     if (data.wantLoadable) {

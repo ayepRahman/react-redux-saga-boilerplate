@@ -46,7 +46,7 @@ import routeTemplates from 'utils/routeTemplates';
 {{/if}}
 
 
-export const {{ properCase name }} = (props) => {
+export const {{ properCase name }} = props => {
   {{#if wantMessages}}
   // @dev args for t('key', 'text')
   const { t, i18n } = useTranslation();

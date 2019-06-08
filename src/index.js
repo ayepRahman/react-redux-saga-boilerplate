@@ -5,12 +5,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import 'i18n';
 
 import history from 'utils/history';
 import configureStore from 'app/store/configureStore';
-
-//
-import 'i18n';
 
 import App from 'app/containers/App';
 // import LanguageProvider from 'app/containers/LanguageProvider';

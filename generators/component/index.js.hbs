@@ -17,17 +17,20 @@ import React from 'react';
 {{#if wantStyle}}
 import styled from 'styled-components';
 {{/if}}
-
 {{#if wantMessages}}
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import { useTranslation } from 'react-i18next';
 {{/if}}
 
-function {{ properCase name }}() {
+export const {{ properCase name }} = props => {
+  {{#if wantMessages}}
+  // @dev args for t('key', 'text')
+  const { t, i18n } = useTranslation();
+  {{/if}}
   return (
     <div>
-    {{#if wantMessages}}
-      <FormattedMessage {...messages.header} />
+     {{#if wantMessages}}
+      {/* @dev remember to add prefix to 'key' args */}
+      <h1>{t('{{ dashCase }}-title', '{{ properCase name }}')}</h1>
     {{/if}}
     </div>
   );
