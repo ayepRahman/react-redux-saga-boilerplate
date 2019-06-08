@@ -95,26 +95,38 @@
       "\\.(css|scss)$": "identity-obj-proxy"
     }
   },
-  "lint-staged": {
-    "linters": {
-      "*.{js,scss}": [
-        "git add ."
-      ]
-    },
-    "ignore": [
-      "**/dist/*.min.js"
-    ],
-    "*.js": [
-      "npm run lint:eslint:fix",
-      "git add --force"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add --force"
-    ]
-  },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "prettier"
+    ],
+    "settings": {
+      "react": {
+        "version": "^15.6.2"
+      }
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "warn"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{css,scss}": [
+      "prettier --write",
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.{json}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [
@@ -127,5 +139,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  }
+  "stylelint": {
+    "extends": [
+      "stylelint-config-recommended-scss"
+    ],
+    "rules": {
+      "string-no-newline": null,
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global"
+          ]
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
