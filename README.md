@@ -146,6 +146,23 @@ locales
 └── it
 ```
 
+#### Available options
+
+```
+Options:
+  -i, --input <inputDir> the directory containing language directories (default: ".")
+  -l, --source-language <sourceLang> specify the source language (default: "en")
+  -t, --type <key-based|natural|auto> specify the file structure type (default: "auto")
+  -s, --service <service> selects the service to be used for translation (default: "google-translate")
+  --list-services outputs a list of available services
+  -m, --matcher <matcher> selects the matcher to be used for interpolations (default: "icu")
+  --list-matchers outputs a list of available matchers
+  -c, --config <value> supply a config parameter (e.g. path to key file) to the translation service
+  -f, --fix-inconsistencies automatically fixes inconsistent key-value pairs by setting the value to the key
+  -d, --delete-unused-strings deletes strings in translation files that don't exist in the template
+  -h, --help output usage information
+```
+
 ### Code genarators
 
 Build using plop a little tool that saves you time and helps your team build new files with consistency e.g component, containers.
@@ -163,23 +180,6 @@ $ yarn generate
 <p align="center">
   <img width="600" src="src/resources/images/generator.gif">
 </p>
-
-#### Available options
-
-```
-Options:
-  -i, --input <inputDir> the directory containing language directories (default: ".")
-  -l, --source-language <sourceLang> specify the source language (default: "en")
-  -t, --type <key-based|natural|auto> specify the file structure type (default: "auto")
-  -s, --service <service> selects the service to be used for translation (default: "google-translate")
-  --list-services outputs a list of available services
-  -m, --matcher <matcher> selects the matcher to be used for interpolations (default: "icu")
-  --list-matchers outputs a list of available matchers
-  -c, --config <value> supply a config parameter (e.g. path to key file) to the translation service
-  -f, --fix-inconsistencies automatically fixes inconsistent key-value pairs by setting the value to the key
-  -d, --delete-unused-strings deletes strings in translation files that don't exist in the template
-  -h, --help output usage information
-```
 
 ## Todolists
 

@@ -11,7 +11,6 @@ import history from 'utils/history';
 import configureStore from 'app/store/configureStore';
 
 import App from 'app/containers/App';
-// import LanguageProvider from 'app/containers/LanguageProvider';
 import * as serviceWorker from './serviceWorker';
 
 const store = configureStore({}, history);
