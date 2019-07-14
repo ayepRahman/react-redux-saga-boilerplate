@@ -1,0 +1,71 @@
+/*
+ * @dev - model
+ * validate field differently depending on the input itself.
+ * validator.js is used to validate all fields in any forms
+ * https://validatejs.org/#validators for all validations.
+ */
+
+export const fieldNames = {
+  name: 'name',
+  email: 'email'
+};
+
+/**
+ * @dev - contraints
+ * validate.js allows the validators object and validator options
+ * to be a function that should return the constraints/options:
+ * a function that should return the constraints/options:
+ * 
+ * !imporant, each constraints only handle one form at a time.
+ * so for handling multiple form, create new constraints
+ */
+
+export const constraints = {
+	[fieldNames.name]: {
+		date: false,
+		datetime: false,
+		email: false,
+		equality: {
+			attribute: 'fieldTwo',
+			message: 'Passwords do not match'
+		},
+		exclusion: {
+      within: {jp: "Japan", "ch": "China"},
+      message: "^We don't support %{value} right now, sorry"
+    },
+		format: {
+      pattern: "[a-z0-9]+",
+      flags: "i",
+      message: "can only contain a-z and 0-9"
+    },
+		inclusion: {
+      within: {"Small": "s", "Medium": "m", "Large": "l"},
+      message: "^We're currently out of %{value}"
+    },
+		length: {
+			maximum: 100,
+			minimum: 0
+		},
+		numericality: false,
+		presence: true,
+		url: false,
+		fileSize: {
+			minimum: 0,
+			maximum: 1024
+		},
+		file: false,
+		username: false,
+		uniquenessAsync: {
+			api: 'https://randomapiendpoints.com/api/v3/...',
+			message: 'Custom error message'
+		},
+		json: false
+	},
+	[fieldNames.email]: {
+    presence: true,
+    length: {
+			maximum: 100,
+			minimum: 0
+		},
+	},
+};
