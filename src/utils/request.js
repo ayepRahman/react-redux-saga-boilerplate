@@ -1,30 +1,35 @@
 import axios from 'axios';
-import invariant from 'invariant';
-import validate from 'validate.js';
+import * as yup from 'yup';
 
 const prefix = 'path: utils/request.js';
-const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = process.env.REACT_APP_BASE_URL || 'https://api.themoviedb.org/';
 
 /**
  * A way to provide descriptive errors
  * in development but generic errors in production.
  */
 
-const checkRequest = ({ method, url, config }) => {
-  const constraints = {
-    method: validate.contains(['get', 'post', 'put', 'patch', 'delete'], method),
-    url: validate({ url }, { url: { url: true } }) === undefined ? true : false,
-    config: validate.isObject(config),
-  };
+const checkRequest = async ({ method, url, config }) => {
+  let schema = yup.object().shape({
+    method: yup
+      .mixed()
+      .oneOf(['get', 'post', 'put', 'patch', 'delete'])
+      .required(),
+    url: yup
+      .string()
+      .url()
+      .required(),
+    config: yup.object(),
+  });
 
-  invariant(
-    constraints.method,
-    `${prefix} - method should be oneOf ['get', 'post', 'put', 'patch', 'delete']`
-  );
-  invariant(constraints.url, `${prefix} - url is not a valid url`);
-
-  if (config) {
-    invariant(constraints.config, `${prefix} - config is not an object`);
+  try {
+    await schema.isValid({
+      method: method,
+      url: url,
+      config: config,
+    });
+  } catch (error) {
+    console.error(`${prefix}: ${error.message}`);
   }
 };
 
@@ -36,7 +41,6 @@ const buildFullUrl = endpoint => {
 
 /**
  * @dev - request handle Promise based HTTP client for the browser and node.js
- *
  * @param {string} method - oneOf ['get', 'post', 'put', 'patch', 'delete']
  * @param {string} endpoint - e.g 'app/register'
  * @param {object} config - an object
