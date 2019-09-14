@@ -11,6 +11,12 @@ export const sortOrders = {
   descending: 'desc',
 };
 
+export const toggleOrder = (sortOrder, defaultOrder = sortOrders.ascending) => {
+  if (sortOrder === sortOrders.ascending) return sortOrders.descending;
+  if (sortOrder === sortOrders.descending) return sortOrders.ascending;
+  return defaultOrder;
+};
+
 /**
  *
  * @param {key} - key
@@ -21,12 +27,6 @@ export const sortOrders = {
  * @param {children} - react children
  */
 const SortableTableHeader = ({ key, name, field, order, onChange, children }) => {
-  const toggleOrder = (sortOrder, defaultOrder = sortOrders.ascending) => {
-    if (sortOrder === sortOrders.ascending) return sortOrders.descending;
-    if (sortOrder === sortOrders.descending) return sortOrders.ascending;
-    return defaultOrder;
-  };
-
   return (
     <TableHeader
       key={key}

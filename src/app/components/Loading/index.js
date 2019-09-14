@@ -28,7 +28,7 @@ const LoadingContent = styled.div`
 
 const Loading = ({ loadable, extend, error, retry, timedOut, pastDelay }) => {
   const renderExtendLoader = () => (
-    <LoadingWrapper>
+    <LoadingWrapper data-testid="loading-wrapper">
       <LoadingContent>
         {loadable && (
           <div>
@@ -51,7 +51,7 @@ const Loading = ({ loadable, extend, error, retry, timedOut, pastDelay }) => {
   );
 
   const renderLoader = () => (
-    <div className="p-3 text-center">
+    <div data-testid="loader" className="p-3 text-center">
       <Spinner animation="border" variant="dark" />
     </div>
   );
