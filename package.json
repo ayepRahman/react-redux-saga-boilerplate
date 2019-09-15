@@ -52,6 +52,7 @@
     "extract-react-intl-messages": "^1.0.1",
     "husky": "^2.4.0",
     "i18next-scanner": "^2.10.2",
+    "jest": "^24.9.0",
     "json-autotranslate": "^1.3.2",
     "jsonfile": "^5.0.0",
     "lint-staged": "^8.2.0",
@@ -59,6 +60,7 @@
     "prettier": "^1.18.2",
     "shelljs": "^0.8.3",
     "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-recommended": "^2.2.0",
     "stylelint-config-recommended-scss": "^3.3.0",
     "stylelint-config-styled-components": "^0.1.1",
@@ -69,8 +71,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env NODE_ENV=test jest --coverage",
-    "test:watch": "cross-env NODE_ENV=test jest --watchAll",
+    "test": "cross-env NODE_ENV=test jest --coverage --config",
+    "test:watch": "cross-env NODE_ENV=test jest --watchAll --config",
     "eject": "react-scripts eject",
     "generate": "plop --plopfile generators/index.js",
     "lint": "npm-run-all lint:*",
@@ -82,70 +84,10 @@
     "autotranslate": "json-autotranslate --input ./src/i18n/locales --service google-translate -d --config ./src/config/google/key-google.json",
     "clean-locales": "node ./scripts/extract-and-destroy-locales.js"
   },
-  "jest": {
-    "roots": [
-      "<rootDir>",
-      "/src"
-    ],
-    "modulePaths": [
-      "<rootDir>",
-      "/src"
-    ],
-    "moduleDirectories": [
-      "src",
-      "common",
-      "js",
-      "json",
-      "jsx",
-      "ts",
-      "tsx",
-      "node",
-      "node_modules"
-    ],
-    "collectCoverageFrom": [
-      "src/app/**/*.{js,jsx}",
-      "!src/app/**/*.test.{js,jsx}",
-      "!src/app/*/*/Loadable.{js,jsx}"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": -10
-      }
-    },
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy"
-    }
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push": ""
-    }
-  },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "es6": true,
-      "jest": true,
-      "node": true
-    },
-    "extends": [
-      "react-app",
-      "prettier"
-    ],
-    "settings": {
-      "react": {
-        "version": "^15.6.2"
-      }
-    },
-    "plugins": [
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": "warn"
     }
   },
   "lint-staged": {
@@ -176,26 +118,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "stylelint": {
-    "extends": [
-      "stylelint-config-recommended-scss"
-    ],
-    "rules": {
-      "string-no-newline": null,
-      "selector-pseudo-class-no-unknown": [
-        true,
-        {
-          "ignorePseudoClasses": [
-            "global"
-          ]
-        }
-      ]
-    }
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "trailingComma": "es5"
   }
 }

@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": ["react-app", "prettier"],
+  "settings": {
+    "react": {
+      "version": "^15.6.2"
+    }
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "warn"
+  }
+}

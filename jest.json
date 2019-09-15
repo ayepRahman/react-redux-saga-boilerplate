@@ -1,0 +1,23 @@
+{
+  "bail": 1,
+  "verbose": true,
+  "roots": ["<rootDir>", "/src"],
+  "modulePaths": ["<rootDir>", "/src"],
+  "moduleDirectories": ["src", "common", "js", "json", "jsx", "ts", "tsx", "node", "node_modules"],
+  "collectCoverageFrom": [
+    "src/app/**/*.{js,jsx}",
+    "!src/app/**/*.test.{js,jsx}",
+    "!src/app/*/*/Loadable.{js,jsx}"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "functions": 80,
+      "lines": 80,
+      "statements": -10
+    }
+  },
+  "moduleNameMapper": {
+    "\\.(css|scss)$": "identity-obj-proxy"
+  }
+}

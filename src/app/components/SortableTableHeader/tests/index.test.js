@@ -1,40 +1,57 @@
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 
-import Loading from '../index';
+import SortableTableHeader, { sortOrders, toggleOrder, prefix } from '../index';
 
 describe('Loading', () => {
-  const defaultProps = {
-    loadable: true,
-    extend: true,
-    error: {
-      message: '',
-    },
-    retry: jest.fn(),
-    timedOut: 1000,
-    pastDelay: true,
-  };
-
-  const renderSubject = props => render(<Loading {...defaultProps} {...props} />);
-
-  it('should render extend loader', () => {
-    const mockProps = {
-      loadable: true,
-      extend: true,
-    };
-
-    const { getByTestId } = renderSubject(mockProps);
-    getByTestId('loading-wrapper');
+  beforeEach(() => {
+    cleanup();
   });
 
-  it('should render loader', () => {
+  const defaultProps = {
+    order: sortOrders.ascending,
+    onChange: jest.fn(),
+    children: <div>Name</div>,
+  };
+
+  const renderSubject = props => render(<SortableTableHeader {...defaultProps} {...props} />);
+
+  it('should render alt-v icon when field is not a match with name prop', () => {
     const mockProps = {
-      loadable: false,
-      extend: false,
+      name: 'Name',
+      field: 'Test',
     };
 
     const { getByTestId } = renderSubject(mockProps);
-    getByTestId('loader');
+    getByTestId(`${prefix}_alt-v-icon`);
+  });
+
+  it('should render alt-v icon when field is not a match with name prop', () => {
+    const mockProps = {
+      name: 'Name',
+      field: 'Name',
+    };
+
+    const { getByTestId } = renderSubject(mockProps);
+    getByTestId(`${prefix}_sorts-icons`);
+  });
+
+  it('should render alt-v icon when field is not a match with name prop', () => {
+    const mockProps = {
+      name: 'Name',
+      field: 'Name',
+    };
+
+    const { getByTestId, rerender, container, debug } = renderSubject({
+      sort: sortOrders.ascending,
+      ...mockProps,
+    });
+
+    debug();
+
+    // console.log(container);
+    const sortIcon = getByTestId(`${prefix}_sorts-icons`);
+    // expect(sortIcon);
   });
 });
