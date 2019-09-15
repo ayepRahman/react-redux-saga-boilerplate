@@ -3,5 +3,8 @@
     "module": "commonjs",
     "baseUrl": "src/"
   },
-  "exclude": ["node_modules", "build", "config", "public", "scripts"]
+  "exclude": ["node_modules", "build", "config", "public", "scripts"],
+  "typeAcquisition": {
+    "include": ["jest"]
+  }
 }

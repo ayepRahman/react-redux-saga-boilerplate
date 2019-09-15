@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const TableHeader = styled.th`
   cursor: pointer;
-`
+`;
 
 export const sortOrders = {
   ascending: 'asc',
   descending: 'desc',
-}
+};
 
 export const toggleOrder = (sortOrder, defaultOrder = sortOrders.ascending) => {
-  if (sortOrder === sortOrders.ascending) return sortOrders.descending
-  if (sortOrder === sortOrders.descending) return sortOrders.ascending
-  return defaultOrder
-}
+  if (sortOrder === sortOrders.ascending) return sortOrders.descending;
+  if (sortOrder === sortOrders.descending) return sortOrders.ascending;
+  return defaultOrder;
+};
 
-export const prefix = 'sortable-table-header'
+export const prefix = 'sortable-table-header';
 
 /**
  *
@@ -31,13 +31,14 @@ export const prefix = 'sortable-table-header'
 const SortableTableHeader = ({ key, name, field, order, onChange, children }) => {
   return (
     <TableHeader
+      data-testid={`${prefix}`}
       key={key}
       onClick={event => {
-        event.preventDefault()
+        event.preventDefault();
         onChange({
           name,
           order: toggleOrder(order),
-        })
+        });
       }}
     >
       <div className="d-flex">
@@ -57,7 +58,7 @@ const SortableTableHeader = ({ key, name, field, order, onChange, children }) =>
         </div>
       </div>
     </TableHeader>
-  )
-}
+  );
+};
 
-export default SortableTableHeader
+export default SortableTableHeader;
