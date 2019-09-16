@@ -67,7 +67,8 @@ const makeSelectPaginationParams = props => {
     selectMoviesStateDomain,
     moviesState => {
       // due to api restriction, totalPage is hard coded
-      const totalPage = 1000 || (moviesState && moviesState.data && moviesState.data.total_pages);
+      // const totalPage = 1000 || (moviesState && moviesState.data && moviesState.data.total_pages);
+      const totalPage = 1000;
       const currentPage = moviesState && moviesState.data && moviesState.data.page;
       const prevPage = currentPage > 1 ? currentPage - 1 : currentPage;
       const nextPage = currentPage < totalPage ? currentPage + 1 : totalPage;

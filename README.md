@@ -183,5 +183,4 @@ $ yarn generate
 
 ## Todolists
 
-- README.md features quick start and faqs
-- hot reload for extract and auto translate text
+- Badges coverage, building

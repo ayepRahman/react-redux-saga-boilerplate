@@ -6,16 +6,6 @@
  *
  */
 
-// import 'jest-dom/extend-expect'; // add some helpful assertions
-// import React from 'react';
-// import { render } from '@testing-library/react';
-// import i18n from 'i18next';
-// import { initReactI18next } from 'react-i18next';
-// import { Provider } from 'react-redux';
-// import { browserHistory } from 'react-router-dom';
-// import { ConnectedRouter } from 'connected-react-router';
-
-// import configureStore from '../../../store/configureStore';
 import { getMoviesStart, setCurrentPageParam, setSortParam, setLanguageParam } from '../actions';
 import { mapDispatchToProps } from '../index.js';
 
