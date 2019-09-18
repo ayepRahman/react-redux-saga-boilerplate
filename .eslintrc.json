@@ -3,7 +3,11 @@
     "browser": true,
     "es6": true,
     "jest": true,
-    "node": true
+    "node": true,
+    "commonjs": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
   },
   "extends": ["react-app", "prettier"],
   "settings": {
