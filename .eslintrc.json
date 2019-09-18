@@ -1,4 +1,12 @@
 {
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
   "env": {
     "browser": true,
     "es6": true,
@@ -6,16 +14,13 @@
     "node": true,
     "commonjs": true
   },
-  "parserOptions": {
-    "ecmaVersion": 2018
-  },
-  "extends": ["react-app", "prettier"],
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier", "redux-saga", "react", "react-hooks", "jsx-a11y"],
   "settings": {
     "react": {
       "version": "^16"
     }
   },
-  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "warn"
   }
