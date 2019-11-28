@@ -14,7 +14,12 @@
     "node": true,
     "commonjs": true
   },
-  "extends": ["airbnb", "prettier", "prettier/react"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
   "plugins": ["prettier", "redux-saga", "react", "react-hooks", "jsx-a11y"],
   "settings": {
     "react": {
